@@ -1,0 +1,40 @@
+// ════════════════════════════════════════════════════════
+//  CHILD — global.scss  (GLOBAL stylesheet, every page)
+//
+//  Compiling this to global.css fully replaces the parent's
+//  assets/css/global.css at runtime (parent enqueues it via
+//  get_theme_file_uri(), which checks the child first).
+//
+//  Source lives in assets/scss/ ; Live Sass Compiler outputs to assets/css/.
+// ════════════════════════════════════════════════════════
+
+// Pull in the parent's global stylesheet and (optionally) reconfigure its
+// variables. Path: assets/scss → ../../.. → themes/ → voiceweb/assets/scss/global
+//
+// ── همان رنگ برند، برای متغیر سراسری --hb-blue ──
+@use '../../../voiceweb/assets/scss/global' as parent with (
+	$c-blue: #146bdd
+);
+
+// Keep the VoiceWeb flight-result sidebar and result list on the same row.
+// Bootstrap is loaded after Vuetify and can otherwise reset the v-col widths.
+@media (min-width: 960px) {
+	#app .resultsHeader > .d-flex.flex-column > .row.justify-center {
+		display: flex !important;
+		flex-wrap: nowrap !important;
+	}
+
+	#app .resultsHeader > .d-flex.flex-column > .row.justify-center > .filters-col.col-md-3 {
+		flex: 0 0 25% !important;
+		width: 25% !important;
+		max-width: 25% !important;
+	}
+
+	#app .resultsHeader > .d-flex.flex-column > .row.justify-center > #content.col-md-9 {
+		flex: 0 0 75% !important;
+		width: 75% !important;
+		max-width: 75% !important;
+	}
+}
+
+// ── Your global override / additional styles below ───────────────────

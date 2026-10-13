@@ -1,0 +1,31 @@
+@use '../abstracts/tokens' as *;
+@use 'home' as blog-home;
+
+.cn-front-page {
+	overflow: clip;
+	background: #f4f6f8;
+	font-family: $font-family;
+}
+
+.cn-front-blog-section {
+	display: flow-root;
+	padding-block: clamp(38px, 5vw, 72px);
+	background:
+		radial-gradient(circle at 8% 12%, rgba(#20b7d0, .07), transparent 24rem),
+		#f5f7f9;
+
+	> .home-news-section {
+		margin-block: 0 !important;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.cn-front-blog-section {
+		padding-block: 28px;
+
+		.news-layout {
+			padding: 12px;
+			border-radius: 18px;
+		}
+	}
+}
