@@ -1,0 +1,60 @@
+<?php
+
+namespace WPParsidate\Admin;
+
+defined( 'ABSPATH' ) || exit;
+
+use WPParsidate\Helper\{Assets, Nonce};
+
+class AdminAssets {
+  public function __construct() {
+    add_action( 'admin_enqueue_scripts', array( $this, 'enqueueScripts' ) );
+  }
+
+  public function enqueueScripts(): void {
+    $pluginVersion = Assets::getVersion();
+    $debugName     = WP_PARSI_DEBUG_MODE ? '' : '.min';
+
+    wp_enqueue_script( WP_PARSI_KEY_SLUG . '-plugin-admin',
+      Assets::url( 'js-admin/plugin-admin' . $debugName . '.js' ), [], $pluginVersion, [ 'in_footer' => true ] );
+
+    wp_localize_script( WP_PARSI_KEY_SLUG . '-plugin-admin', WP_PARSI_KEY_CAP . 'Admin',
+      array(
+        'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
+        'ajaxNonce' => Nonce::create(),
+      ) );
+
+    if ( ! AdminPages::isSettingPage() ) {
+      return;
+    }
+
+    //wp_enqueue_media();
+    //wp_enqueue_style( 'wp-color-picker' );
+    //wp_enqueue_script( 'wp-color-picker' );
+
+    wp_enqueue_style( WP_PARSI_KEY_SLUG . '-plugin',
+      Assets::url( 'css-admin/plugin' . $debugName . '.css' ), false, $pluginVersion );
+
+    wp_enqueue_script( WP_PARSI_KEY_SLUG . '-plugin',
+      Assets::url( 'js-admin/plugin' . $debugName . '.js' ),
+      [
+        'jquery',
+        'jquery-ui-sortable',
+      ], $pluginVersion, [ 'in_footer' => true ] );
+
+    wp_localize_script( WP_PARSI_KEY_SLUG . '-plugin', WP_PARSI_KEY_CAP,
+      array(
+        'ajaxUrl'            => admin_url( 'admin-ajax.php' ),
+        'ajaxNonce'          => Nonce::create(),
+        'pageRefreshedAfter' => apply_filters( 'wp_parsidate_settings_page_refreshed_after', 0 ),
+        'pageRefreshUrl'     => apply_filters( 'wp_parsidate_settings_page_refresh_url', null ),
+        'removeText'         => esc_html__( 'Remove', 'wp-parsidate' ),
+        'dtuConfirmDelete'   => esc_html__( 'Are you sure you want to delete this item(s)?', 'wp-parsidate' ),
+        'copyText'           => esc_html__( 'Click to copy this text.', 'wp-parsidate' ),
+      ) );
+  }
+
+  public static function imageUrl( $path ): string {
+    return WP_PARSI_URL . 'assets/images/' . $path;
+  }
+}

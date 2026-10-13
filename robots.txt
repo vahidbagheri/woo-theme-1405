@@ -1,0 +1,35 @@
+# Allow all crawlers
+User-agent: *
+
+# Block WordPress admin
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+# Block login page
+Disallow: /wp-login.php
+
+# Block search results pages
+Disallow: /?s=
+
+# Block date, author, and tag archives (if not used for SEO)
+Disallow: /author/
+Disallow: /tag/
+Disallow: /date/
+Disallow: /category/uncategorized/
+
+# Block unnecessary feeds
+Disallow: /*/feed/
+Disallow: /*/trackback/
+
+# Block internal-only CPTs (example: testimonials, portfolio drafts)
+# Replace "testimonials" with your CPT slug
+Disallow: /testimonials/
+Disallow: /portfolio-drafts/
+
+# Allow CSS, JS, and images for rendering
+Allow: /wp-content/uploads/
+Allow: /wp-content/themes/
+Allow: /wp-content/plugins/
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap_index.xml

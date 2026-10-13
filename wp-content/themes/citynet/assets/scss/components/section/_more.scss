@@ -1,0 +1,11 @@
+@use '../../abstracts/tokens' as *;
+
+.sec-more {
+  color: $c-link;
+
+  &:hover {
+    opacity: .75;
+  }
+
+  .iconly { color: $c-blue; }
+}

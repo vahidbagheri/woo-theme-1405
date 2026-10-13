@@ -1,0 +1,19 @@
+/* Only the opt-in control is added to the original appearance. */
+.toplevel_page_citynet-settings .cn-settings-theme-switch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  direction: rtl;
+  margin: 0 0 18px;
+}
+.toplevel_page_citynet-settings .cn-settings-theme-switch .button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 2px 12px;
+  font-family: inherit;
+}
+.toplevel_page_citynet-settings .cn-settings-theme-switch .dashicons { font-size: 18px; width: 18px; height: 18px; }
+.toplevel_page_citynet-settings .cn-theme-switch-status { color: #646970; font-size: 12px; line-height: 1.8; }

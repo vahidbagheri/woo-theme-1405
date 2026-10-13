@@ -1,0 +1,590 @@
+// Home posts-page bundle. Single-post and category styles live in their own files.
+@forward '../abstracts/tokens';
+@use '../abstracts/tokens' as *;
+@use '../components/blog-breadcrumbs';
+@use '../components/card/featured';
+@use '../components/card/grid';
+@use '../components/card/category';
+@use '../components/card/travelogue';
+@use '../components/card/latest';
+@use '../components/card/tags';
+@use '../components/section/title';
+@use '../components/section/more';
+
+.home-blog-main {
+  display: flow-root;
+
+  .container {
+    max-width: $container-max-width-desktop;
+
+    @media (min-width: 992px) {
+      padding-inline: 20px;
+    }
+  }
+
+  > section {
+    margin: 24px 0 0 !important;
+
+    &:first-child {
+      margin-top: 16px !important;
+    }
+  }
+
+  @media (min-width: 992px) {
+    > section {
+      margin-top: 64px !important;
+
+      &:first-child {
+        margin-top: 32px !important;
+      }
+    }
+  }
+}
+
+.blog .home-blog-main {
+  padding-bottom: 32px;
+
+  @media (min-width: 992px) {
+    padding-bottom: 64px;
+  }
+}
+
+// Unified section headings across the blog home.
+.home-blog-main .sec-title {
+  @include title.blog-heading;
+}
+
+.home-blog-main .cn-card--category-icon {
+  display: none;
+}
+
+// Darken the text area while keeping the featured images sharp and visible.
+.home-blog-main .cn-card--featured::before {
+  @include featured.readable-overlay;
+}
+
+.home-blog-main .cn-card--featured-text {
+  @include featured.readable-text;
+}
+
+@media (min-width: 992px) {
+  .home-blog-main .d-flex.mb-3:has(> .sec-title) {
+    margin-bottom: 20px !important;
+  }
+
+  .home-blog-main [data-slider].is-mouse-draggable {
+    cursor: grab;
+
+    &.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  }
+
+  .home-blog-main .cn-card--featured-desktop .cn-card--featured-text p {
+    color: rgba(255, 255, 255, .9);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .home-blog-main :is(.cn-card--featured-tag, .cn-card__tag, .cn-card--horizontal-badge) {
+    @include tags.blog-badge-surface;
+    font-size: 12px;
+  }
+
+  .home-travelogue-section .cn-card--horizontal-date,
+  .home-guide-section .cn-card__date,
+  .home-news-section .cn-card__date {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .home-travelogue-section {
+    .cn-card--horizontal-body {
+      padding: 10px 8px 8px;
+    }
+
+    .cn-card--horizontal-title {
+      margin-bottom: 4px;
+      color: #0a0a0a;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 14px;
+    }
+
+    .cn-card--horizontal-excerpt {
+      display: -webkit-box;
+      height: 42px;
+      min-height: 42px;
+      max-height: 42px;
+      flex: 0 0 42px;
+      color: #717375;
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: justify;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+    }
+
+    .cn-card--horizontal-date {
+      color: #989b9d;
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 14px;
+    }
+
+  }
+
+  .home-news-section .news-side {
+    .cn-card--latest-title {
+      color: #0a0a0a;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+    .cn-card--latest-desc {
+      color: #989b9d;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: justify;
+    }
+
+    .cn-card--latest-date {
+      color: #989b9d;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 14px;
+    }
+
+    .cn-card--latest-thumb {
+      border-radius: 16px;
+    }
+  }
+
+  .home-blog-main .cn-card--featured-scroller {
+    padding-inline: 0;
+
+    > .cn-card--featured {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+    }
+
+    .cn-card--featured-text {
+      padding: 8px;
+    }
+
+    .cn-card--featured-tag-top {
+      position: absolute;
+      inset-block-start: 16px;
+      inset-inline-start: 8px;
+      margin: 0;
+    }
+
+    .cn-card--featured-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 50px;
+      height: 24px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, .5);
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 16px;
+
+      &:nth-child(n + 2) {
+        display: none;
+      }
+    }
+
+    .cn-card--featured-text h3 {
+      overflow: hidden;
+      margin-bottom: 0;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cn-card--featured-text p {
+      overflow: hidden;
+      color: rgba(255, 255, 255, .9);
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 14px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+// Desktop section actions sit beside the heading; mobile actions follow the cards.
+.home-blog-main .sec-more {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 2px !important;
+  color: #0466c8;
+  line-height: 20px !important;
+
+  .cn-inline-chevron {
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    align-items: center;
+    justify-content: center;
+    color: currentColor;
+    font-size: 20px;
+    line-height: 1;
+    transform: translateY(1px);
+  }
+}
+
+.home-blog-main .home-more-mobile {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .home-blog-main {
+    .home-more-desktop {
+      display: none;
+    }
+
+    .home-more-mobile {
+      display: block;
+
+      .sec-more {
+        display: flex !important;
+        justify-content: center;
+        width: 100%;
+        height: 36px;
+        box-sizing: border-box;
+        margin-top: 8px;
+        padding: 10px 16px;
+        gap: 4px !important;
+        border: 1px solid #0466c8;
+        border-radius: 12px;
+        background: transparent;
+        color: #0466c8;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 14px !important;
+        text-align: center;
+
+        .cn-inline-chevron {
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+.home-blog-main :is(.cn-card--horizontal-read, .cn-card__read-more) {
+  font-family: $font-family;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  line-height: 14px;
+  gap: 3px !important;
+  color: #0466c8;
+  opacity: 1;
+
+  // Match the travelogue label, which keeps its colour and opacity on hover.
+  &:hover,
+  &:focus-visible {
+    color: #0466c8;
+    opacity: 1;
+  }
+
+  .iconly {
+    color: currentColor;
+    font-size: 1em !important;
+    line-height: 1;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 14px !important;
+    line-height: 21px;
+  }
+}
+
+.hb {
+  &-dots {
+    gap: 6px;
+    margin-top: 14px;
+  }
+  &-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #c9ced4;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: width .3s, background .3s, border-radius .3s;
+
+    &.active { width: 28px; border-radius: 4px; background: $c-navy; }
+  }
+}
+
+.cards-row {
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+
+  &::-webkit-scrollbar { display: none; }
+  > .cn-card--grid { flex: 0 0 72%; min-width: 0; scroll-snap-align: start; }
+
+  @media (min-width: 576px) and (max-width: 991.98px) { > .cn-card--grid { flex: 0 0 40%; } }
+  @media (min-width: 992px) {
+    overflow: visible;
+    scroll-snap-type: none;
+    flex-wrap: wrap;
+    gap: 18px;
+    > .cn-card--grid { scroll-snap-align: none; }
+  }
+
+  &--4 {
+    > .cn-card--grid {
+      @include grid.guide-card;
+      flex-basis: 230px;
+    }
+
+    @media (min-width: 992px) {
+      gap: 24px;
+
+      > .cn-card--grid {
+        width: 278px;
+        min-width: 278px;
+        max-width: 278px;
+        flex: 0 0 278px;
+
+        .cn-card--grid-image {
+          height: 197px;
+        }
+      }
+    }
+  }
+  &--2 {
+    > .cn-card--grid {
+      flex-basis: 248px;
+
+      .cn-card--grid-image {
+        --bs-aspect-ratio: 0;
+        height: 142px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      > .cn-card--grid {
+        flex: 1 1 calc(50% - 9px);
+
+        .cn-card--grid-image {
+          height: 220px;
+        }
+      }
+    }
+  }
+}
+
+.cn-card--banner {
+  img {
+    border-radius: 18px;
+  }
+}
+
+.cn-card--category {
+  &-track {
+    gap: $gap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 2px 0 8px;
+
+    &::-webkit-scrollbar { display: none; }
+
+    > .cn-card--category {
+      flex: 0 0 100px;
+      width: 100px;
+      height: 100px;
+      aspect-ratio: auto;
+
+      .cn-card--category-title {
+        gap: 4px;
+        padding: 0 8px;
+        font-size: 11px;
+      }
+
+      .cn-card--category-icon {
+        font-size: 20px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      > .cn-card--category {
+        flex: 0 0 calc((100% - ($gap * 3)) / 4);
+        width: calc((100% - ($gap * 3)) / 4);
+        height: 188px;
+
+        .cn-card--category-title {
+          gap: 8px;
+          padding: 0 14px;
+          font-size: 20px;
+        }
+
+        .cn-card--category-icon {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+}
+
+.posts-grid {
+  > .cn-card--horizontal { flex: 1 1 calc(50% - 8px); min-width: 0; }
+  @media (max-width: 767px) { > .cn-card--horizontal { flex-basis: 100%; } }
+}
+
+.news {
+  &-layout {
+    gap: 26px;
+
+    @media (min-width: 992px) {
+      gap: 24px;
+    }
+  }
+  &-main { min-width: 0; @media (min-width: 992px) { flex: 1 1 0; } }
+  &-side { min-width: 0; @media (min-width: 992px) { flex: 0 0 392px; width: 392px; } }
+}
+
+// Keep the date on the right and the read-more link on the left in RTL cards.
+[dir='rtl'] .news-main {
+  .cn-card--grid-footer { direction: ltr; }
+
+  .cn-card__read-more,
+  .cn-card__date { direction: rtl; }
+}
+
+// The latest-posts heading and rows share one white surface.
+.news-side .cn-card--latest-panel {
+  padding-top: 0;
+}
+
+.home-news-section .news-side .cn-card--latest-panel {
+  --cn-latest-item-height: 96px;
+  --cn-latest-thumb-size: 80px;
+
+  .cn-card--latest-title { margin-bottom: 12px; }
+  .cn-card--latest-desc { margin-bottom: 10px; }
+
+  @media (min-width: 992px) {
+    --cn-latest-item-height: 104px;
+    --cn-latest-thumb-size: 77px;
+
+    .cn-card--latest-desc { margin-bottom: 18px; }
+  }
+}
+
+.cn-card--latest-panel-header {
+  min-height: 64px;
+  padding: 14px 0 8px;
+}
+
+// Image corners in the Guide and Travelogue sections.
+.home-blog-main {
+  .cards-row--4 .cn-card--grid-image,
+  .cards-row--4 .cn-card--grid-image img,
+  .posts-grid .cn-card--horizontal-img,
+  .posts-grid .cn-card--horizontal-img img {
+    border-radius: 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .home-news-section {
+    .news-layout {
+      align-items: stretch !important;
+    }
+
+    .news-main {
+      display: flex;
+      min-height: 0;
+      flex-direction: column;
+    }
+
+    .cards-row--2 {
+      flex: 1 1 auto;
+      align-content: stretch;
+    }
+
+    .news-side {
+      display: flex;
+      min-height: 0;
+    }
+
+    .cn-card--latest-panel {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      padding-bottom: 0;
+    }
+
+    .cn-card--latest-panel-header {
+      flex: 0 0 64px;
+    }
+
+    .cn-card--latest {
+      height: auto;
+      min-height: var(--cn-latest-item-height);
+      flex: 1 1 0;
+    }
+  }
+
+  .home-travelogue-section {
+    .cn-card--horizontal-title {
+      font-size: 16px !important;
+      font-weight: 700;
+    }
+
+    .cn-card--horizontal {
+      box-shadow: none;
+    }
+
+    .cn-card--horizontal-excerpt {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+  }
+
+  .home-news-section .cards-row--2 > .cn-card--grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
+    padding: 8px 8px 12px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: none;
+
+    .cn-card--grid-body {
+      width: 100%;
+      padding: 0 !important;
+    }
+  }
+}

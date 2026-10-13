@@ -1,0 +1,335 @@
+.toplevel_page_citynet-settings {
+  .wrap.acf-settings-wrap > h1 {
+    margin-bottom: -85px;
+  }
+  #poststuff {
+    #post-body {
+      margin-left: unset;
+      #postbox-container-1 {
+        float: unset;
+        margin-left: unset;
+        width: 100%;
+        #side-sortables {
+          float: left;
+          min-height: unset;
+        }
+      }
+    }
+  }
+  .origin-ul,
+  .destination-ul {
+    border: solid 1px #ccc;
+    background: #ecf0f1;
+    padding: 0;
+    text-align: center;
+    max-height: 98px;
+    overflow: auto;
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    height: 0;
+    &.activeUlOrigin {
+      opacity: 1;
+      visibility: visible;
+      padding: 5px;
+      height: fit-content;
+    }
+    &.activeUlDestination {
+      opacity: 1;
+      visibility: visible;
+      padding: 5px;
+      height: fit-content;
+    }
+    li {
+      font-size: 0.9em;
+      background: white;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      transition: all 0.3s;
+      border-radius: 3px;
+      border: solid 2px #ccc;
+      cursor: pointer;
+      &:hover {
+        background: #ecf0f1;
+      }
+      .cityCode {
+        display: none;
+      }
+    }
+  }
+  .acf-settings-wrap {
+    font-family: iranyekan;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: iranyekan;
+      font-weight: 500;
+    }
+  }
+  .cn-layer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9;
+  }
+  .cn-notice {
+    font-family: iranyekan;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+    background: white;
+    padding: 20px;
+    width: 80%;
+    border: solid 3px #ccc;
+    border-radius: 3px;
+    p {
+      font-size: 1.1em;
+      text-align: center;
+    }
+    a {
+      margin-top: 20px !important;
+      padding: 5px 20px !important;
+      height: unset !important;
+      background: green !important;
+      border-radius: 5px !important;
+      border: none !important;
+      box-shadow: 0 0 2px black !important;
+      transition: all 0.1s !important;
+      &:hover {
+        box-shadow: none !important;
+      }
+    }
+  }
+  input {
+    &[value="افزایش اعتبار"] {
+      display: none;
+    }
+  }
+  .page-attribute-hidden {
+    #pageparentdiv {
+      display: none;
+    }
+  }
+  .sub-system-ul {
+    border: solid 1px #ccc;
+    background: #ecf0f1;
+    padding: 5px;
+    text-align: center;
+    max-height: 102px;
+    overflow: auto;
+    border-radius: 3px;
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: all 0.3s;
+    &.active-sub-system {
+      opacity: 1;
+      visibility: visible;
+      height: fit-content;
+    }
+    li {
+      cursor: pointer;
+      font-size: 0.9em;
+      background: white;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      transition: all 0.3s;
+      border-radius: 3px;
+      border: solid 2px #ccc;
+      transition: all 0.3s;
+      &:hover {
+        background: #ecf0f1;
+      }
+    }
+  }
+  .sub-system-value {
+    margin-top: -24px;
+    background: white;
+    z-index: 1;
+    position: relative;
+    width: 98%;
+    margin-right: 2px;
+    text-align: center;
+  }
+  .sub-system {
+    input {
+      cursor: pointer;
+    }
+  }
+  .ui-timepicker-div {
+    direction: ltr !important;
+  }
+  .ui_tpicker_second,
+  .ui_tpicker_minute {
+    display: none !important;
+  }
+  .ui-datepicker {
+    width: 11em;
+  }
+  .ui_tpicker_hour_slider {
+    select {
+      width: 105px;
+    }
+  }
+  .cn-hours-list {
+    display: flex;
+    flex-wrap: wrap;
+    background: #ecf0f1;
+    padding: 5px;
+    border-radius: 3px;
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    direction: ltr;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    min-width: 198px;
+    &.active-hours-list {
+      opacity: 1;
+      visibility: visible;
+    }
+    li {
+      width: 16.8%;
+      text-align: center;
+      height: 31px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      margin: 2px;
+      border-radius: 3px;
+      font-size: 1.1em;
+      border: solid 1px #ccc;
+      cursor: pointer;
+      transition: all 0.3s;
+      &.cn-selected-hours {
+        background: #ecf0f1;
+      }
+    }
+  }
+  .cn-row1-end,
+  .cn-row2-end,
+  .cn-row3-end,
+  .cn-row4-end,
+  .cn-row5-end,
+  .cn-row6-end {
+    .acf-input-wrap {
+      overflow: unset !important;
+    }
+  }
+  #cn-custom-select {
+    #cn-fake-dropdow-input {
+      &:focus {
+        outline: 0;
+        box-shadow: unset;
+        border-color: inherit;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .acf-input-wrap {
+      overflow: unset;
+      input:not(#cn-fake-dropdow-input):not([type="search"]) {
+        color: white;
+      }
+      &::before {
+        content: "\f140";
+        font-family: dashicons;
+        color: #888;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+      }
+    }
+    .cn-custom-select {
+      &__dropdown {
+        max-height: 200px;
+        position: absolute;
+        background: #ffffff;
+        direction: ltr;
+        width: 100%;
+        z-index: 1;
+        top: 100%;
+        left: 0;
+        right: 0;
+        border: #ccd0d4 solid 1px;
+        border-top: 0;
+        border-radius: 3px;
+        display: none;
+        overflow: auto;
+        margin: 0;
+        > input {
+          width: calc(100% - 8px);
+          margin: 5px auto;
+          display: block;
+          text-align: left;
+        }
+      }
+      &__option {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        span {
+          color: gray;
+        }
+        &:hover {
+          background: #f4f4f4;
+          cursor: pointer;
+        }
+        &--airports {
+          &:hover {
+            background: #f4f4f4;
+            cursor: pointer;
+          }
+          display: flex;
+          align-items: center;
+          text-align: start;
+          .chip {
+            background: rgb(213, 12, 106);
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            margin: 0 5px;
+            &.is-city {
+              background: rgb(81, 137, 246);
+            }
+          }
+          > div {
+            display: flex;
+            flex-direction: column;
+            padding: 0 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .cn-notice {
+    top: 7% !important;
+    width: 40% !important;
+    max-width: 500px;
+  }
+}

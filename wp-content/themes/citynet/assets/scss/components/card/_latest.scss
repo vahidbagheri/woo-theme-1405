@@ -1,0 +1,71 @@
+@use '../../abstracts/tokens' as *;
+
+.cn-card--latest {
+  &-panel {
+    --cn-latest-item-height: 76px;
+    --cn-latest-thumb-size: 60px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 10px 14px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
+  }
+
+  & {
+    height: var(--cn-latest-item-height);
+    min-width: 0;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    box-sizing: border-box;
+    color: inherit;
+
+    &:first-child {
+      padding-top: 8px;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 8px;
+    }
+  }
+
+  &-thumb {
+    width: var(--cn-latest-thumb-size);
+    height: var(--cn-latest-thumb-size);
+    min-width: var(--cn-latest-thumb-size);
+    max-width: var(--cn-latest-thumb-size);
+    max-height: var(--cn-latest-thumb-size);
+    border-radius: 10px;
+  }
+
+  &-info {
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+    height: var(--cn-latest-thumb-size);
+  }
+
+  &-title {
+    margin-bottom: 2px;
+    color: #111;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+  }
+
+  &-desc {
+    margin-bottom: 3px;
+    color: $c-muted;
+    font-size: 11px;
+    line-height: 1.55;
+    text-overflow: ellipsis;
+  }
+
+  &-date {
+    color: $c-muted;
+    font-size: 10.5px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+}

@@ -1,0 +1,24 @@
+// Shared post tags used by grid and popular cards.
+@mixin blog-badge-surface {
+  border-radius: 8px !important;
+  background: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cn-card {
+  &__tags {
+    inset-block-start: 10px;
+    inset-inline-start: 10px;
+    inset-inline-end: auto;
+  }
+
+  &__tag {
+    padding: 4px 10px;
+    background: rgba(0, 0, 0, .5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font-size: 12px;
+  }
+}

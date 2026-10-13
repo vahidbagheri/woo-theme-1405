@@ -1,0 +1,35 @@
+// Only the blog section editor uses this layout; other ACF forms retain theirs.
+.cn-blog-sections {
+  .acf-flexible-content > .values > .layout > .acf-fields {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    > .acf-field {
+      float: none !important;
+      clear: none !important;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+  }
+
+  .acf-field-image .acf-image-uploader img {
+    max-height: 180px;
+    object-fit: contain;
+  }
+
+  .acf-field-link .acf-link {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .acf-field-link .link-wrap {
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 782px) {
+    .acf-flexible-content > .values > .layout > .acf-fields > .acf-field {
+      width: 100% !important;
+    }
+  }
+}

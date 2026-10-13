@@ -1,0 +1,310 @@
+# Persian (fa_IR) translation for the Citynet front end.
+# Copyright (C) 2026
+# This file is distributed under the same license as the theme.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Citynet 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-26 00:00+0000\n"
+"PO-Revision-Date: 2026-07-26 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Persian\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: citynet\n"
+
+#: template-parts/shared/blog-breadcrumbs.php
+msgid "Home"
+msgstr "خانه"
+
+#: template-parts/shared/blog-breadcrumbs.php
+msgid "Blog"
+msgstr "بلاگ"
+
+#: template-parts/shared/blog-breadcrumbs.php
+msgid "Breadcrumbs"
+msgstr "مسیر راهنما"
+
+#: functions.php:38
+msgid "Primary Menu"
+msgstr "منوی اصلی"
+
+#: category.php:113
+#: template-parts/blog/section-news.php:68
+#: template-parts/blog/section-travelogue.php:59
+msgid "Read more"
+msgstr "مطالعه بیشتر"
+
+#: category.php:163
+#: inc/helpers.php:139
+#: inc/helpers.php:268
+#: template-parts/blog/section-news.php:77
+#: template-parts/blog/section-travelogue.php:67
+#: template-parts/blog/section-guide.php:60
+msgid "View more"
+msgstr "مشاهده بیشتر"
+
+#: index.php:35
+msgid "Nothing found."
+msgstr "چیزی یافت نشد."
+
+#: comments.php:20
+msgid "Your comment"
+msgstr "دیدگاه شما"
+
+#: comments.php:21
+msgid "Full name"
+msgstr "نام و نام خانوادگی"
+
+#: comments.php:22
+msgid "Email"
+msgstr "ایمیل"
+
+#: comments.php:27
+msgid "Post Comment"
+msgstr "ارسال دیدگاه"
+
+#: comments.php:28
+msgid "Reply to %s"
+msgstr "پاسخ به %s"
+
+#: comments.php:29
+msgid "Cancel"
+msgstr "انصراف"
+
+#: comments.php:30
+msgid "Submit"
+msgstr "ارسال"
+
+#: category.php:96
+msgid "Most popular"
+msgstr "محبوب‌ترین‌ها"
+
+#: category.php:127
+#: single.php:87
+#: template-parts/blog/section-news.php:39
+msgid "Latest posts"
+msgstr "آخرین مطالب"
+
+#: category.php:168
+msgid "No posts have been published in this category yet."
+msgstr "هنوز مطلبی در این دسته منتشر نشده است."
+
+#: single.php:56
+msgid "Tags"
+msgstr "تگ‌ها"
+
+#: single.php:73
+#: single.php:74
+msgid "Table of contents"
+msgstr "فهرست مطالب"
+
+#: template-parts/blog/section-news.php:31
+msgid "Travel news"
+msgstr "اخبار گردشگری"
+
+#: template-parts/blog/section-categories.php:31
+msgid "Categories"
+msgstr "دسته‌بندی"
+
+#: inc/helpers.php:358
+msgid "Your comment is awaiting moderation."
+msgstr "دیدگاه شما در انتظار تأیید است."
+
+#: inc/helpers.php:367
+msgid "Reply"
+msgstr "پاسخ"
+
+#: home.php:34
+msgid "To display content, fill in the \"Home sections\" field when editing this page."
+msgstr "برای نمایش محتوا، در ویرایش این برگه فیلد «بخش‌های صفحه اصلی» را پر کنید."
+
+#: header.php
+msgid "Main menu"
+msgstr "منوی اصلی"
+
+#: header.php header.php
+#, php-format
+msgid "Open submenu for %s"
+msgstr "باز کردن زیرمنوی %s"
+
+#: header.php
+msgid "Login / Register"
+msgstr "ورود / ثبت نام"
+
+#: header.php
+msgid "Open menu"
+msgstr "باز کردن منو"
+
+#: header.php
+msgid "Mobile menu"
+msgstr "منوی موبایل"
+
+#: header.php
+msgid "Close menu"
+msgstr "بستن منو"
+
+#: header.php
+msgid "Persian"
+msgstr "فارسی"
+
+#: template-parts/header/language-switcher.php
+msgid "Select language and currency"
+msgstr "انتخاب زبان و واحد پولی"
+
+#: template-parts/header/language-switcher.php
+msgid "Close"
+msgstr "بستن"
+
+#: template-parts/header/language-switcher.php
+msgid "Language and currency settings"
+msgstr "تنظیمات زبان و واحد پولی"
+
+#: template-parts/header/language-switcher.php
+msgid "Language"
+msgstr "زبان"
+
+#: template-parts/header/language-switcher.php
+msgid "Currency"
+msgstr "واحد پولی"
+
+#: header.php
+msgid "Rial"
+msgstr "ریال"
+
+#: header.php
+msgid "Dollar"
+msgstr "دلار"
+
+#: header.php template-parts/header/language-switcher.php
+msgid "Euro"
+msgstr "یورو"
+
+#: template-parts/header/language-switcher.php
+msgid "Iranian rial"
+msgstr "ریال ایران"
+
+#: template-parts/header/language-switcher.php
+msgid "US dollar"
+msgstr "دلار آمریکا"
+
+#: template-parts/header/language-switcher.php
+msgid "No other language has been enabled in WPML."
+msgstr "زبان دیگری در WPML فعال نشده است."
+
+#: inc/helpers.php
+msgid "Default post image"
+msgstr "تصویر پیش‌فرض مطلب"
+
+#: functions.php inc/search.php
+msgid "Search"
+msgstr "جستجو"
+
+#: functions.php inc/search.php
+msgid "Search the site"
+msgstr "جستجو در سایت"
+
+#: functions.php inc/search.php
+msgid "What are you looking for?"
+msgstr "دنبال چه چیزی می‌گردید؟"
+
+#: functions.php inc/search.php
+msgid "Search articles, pages, services and more."
+msgstr "در نوشته‌ها، برگه‌ها، خدمات و سایر بخش‌های سایت جستجو کنید."
+
+#: functions.php inc/search.php
+msgid "Enter at least 2 characters."
+msgstr "حداقل ۲ حرف وارد کنید."
+
+#: functions.php inc/search.php
+msgid "Searching..."
+msgstr "در حال جستجو…"
+
+#: functions.php inc/search.php
+msgid "No results were found for your search."
+msgstr "نتیجه‌ای برای جستجوی شما پیدا نشد."
+
+#: functions.php inc/search.php
+msgid "Search is temporarily unavailable. Please try again."
+msgstr "جستجو موقتاً در دسترس نیست؛ دوباره تلاش کنید."
+
+#: functions.php inc/search.php
+msgid "View all search results"
+msgstr "مشاهده همه نتایج جستجو"
+
+#: functions.php inc/search.php
+#, php-format
+msgid "%d results found"
+msgstr "%d نتیجه پیدا شد"
+
+#: functions.php inc/search.php
+msgid "Close search"
+msgstr "بستن جستجو"
+
+#: functions.php inc/search.php
+msgid "Clear search"
+msgstr "پاک‌کردن جستجو"
+
+#: functions.php inc/search.php
+msgid "Untitled"
+msgstr "بدون عنوان"
+
+#: functions.php inc/search.php
+msgid "Search results for"
+msgstr "نتایج جستجو برای"
+
+#: functions.php inc/search.php
+#, php-format
+msgid "%d results"
+msgstr "%d نتیجه"
+
+#: functions.php inc/search.php
+msgid "All content"
+msgstr "همه محتوا"
+
+#: functions.php inc/search.php
+msgid "Filter by content type"
+msgstr "فیلتر بر اساس نوع محتوا"
+
+#: functions.php inc/search.php
+msgid "We could not find anything"
+msgstr "چیزی پیدا نکردیم"
+
+#: functions.php inc/search.php
+msgid "Try a different phrase or choose all content types."
+msgstr "عبارت دیگری را امتحان کنید یا همه انواع محتوا را انتخاب کنید."
+
+#: functions.php inc/search.php
+msgid "Clear filters"
+msgstr "پاک‌کردن فیلترها"
+
+#: functions.php inc/search.php
+msgid "Previous page"
+msgstr "صفحه قبل"
+
+#: functions.php inc/search.php
+msgid "Next page"
+msgstr "صفحه بعد"
+
+#: functions.php inc/search.php
+msgid "Search results pages"
+msgstr "صفحه‌های نتایج جستجو"
+
+#: header.php
+msgid "Reservation account menu"
+msgstr "منوی حساب و رزرو"
+
+#. translators: %s: comment count
+#: comments.php:49
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] "%s دیدگاه"
+msgstr[1] "%s دیدگاه"
+
+#: inc/security.php
+msgid "The username or password is incorrect."
+msgstr "نام کاربری یا رمز عبور نادرست است."

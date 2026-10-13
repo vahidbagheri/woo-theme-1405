@@ -1,0 +1,31 @@
+// ════════════════════════════════════════════════════════
+//  Citynet (WordPress) — global.scss
+//  GLOBAL stylesheet: enqueued on EVERY page (handle "hb-global"),
+//  before any page-specific stylesheet. Put site-wide rules here.
+//
+//  Override in a child theme by shipping assets/css/global.css
+//  (compiled from your own global.scss — see the child theme README).
+//
+//  Source lives in assets/scss/ ; Live Sass Compiler outputs to assets/css/.
+// ════════════════════════════════════════════════════════
+
+// Design tokens now live in abstracts/_tokens.scss (shared with the page and
+// component stylesheets). @forward re-exposes their !default variables so a child
+// theme can still reconfigure them through this file:
+//   @use '.../assets/scss/global' with ( $c-blue: #e91e63 );
+// (the config flows on to the tokens module and thus to :root below).
+@forward 'abstracts/tokens';
+@use 'abstracts/tokens' as *;
+
+a{
+    text-decoration: none !important ;
+}
+
+// Use the same horizontal container padding on every mobile page.
+@media (max-width: 991.98px) {
+  .container {
+    padding-inline: 16px !important;
+  }
+}
+
+

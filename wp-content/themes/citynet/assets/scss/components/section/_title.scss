@@ -1,0 +1,48 @@
+@use '../../abstracts/tokens' as *;
+
+// Shared typography for the blog home and category section headings.
+@mixin blog-heading {
+  color: #023d78 !important;
+  font-family: $font-family;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+
+  @media (min-width: 992px) {
+    font-size: 20px !important;
+    line-height: 28px !important;
+  }
+}
+
+.sec{
+  &-more{
+   .cn-inline-chevron{
+    font-size: 24px;
+   }
+  }
+}
+
+.sec-title {
+  color: $c-navy;
+  
+
+  .iconly {
+    flex-shrink: 0;
+    color: $c-blue;
+    font-size: 1.4em;
+  }
+}
+
+// Keep heading icons at one size across the mobile blog layouts.
+@media (max-width: 991.98px) {
+  .home-blog-main :is(.sec-title, .archive-head, .toc-title) .iconly {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px !important;
+    line-height: 1;
+  }
+}

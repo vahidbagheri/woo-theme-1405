@@ -1,0 +1,31 @@
+/*
+Theme Name: citynet-child
+Theme URI: https://example.com/citynet-child
+Template: citynet
+Author: citynet
+Author URI: https://example.com
+Description: Child theme of "citynet". Override JS, SASS/CSS and PHP by dropping a file at the same relative path here — the parent's copy is then ignored.
+Version: 1.0.0
+Requires at least: 6.3
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: citynet-child
+Tags: blog, rtl-language-support, custom-colors, featured-images, translation-ready
+*/
+
+/* ------------------------------------------------------------------
+   Child overrides for the site-wide base stylesheet.
+   This file is loaded AFTER the parent's style.css (handle
+   "home-blog-base"), so anything here wins by the cascade.
+
+   Blog contexts have separate files under assets/scss/pages:
+   home.scss, single-post.scss and category.scss. Compile them to assets/css/pages.
+   ------------------------------------------------------------------ */
+
+/* Brand colour on generic (non-blog) pages — the parent's style.css
+   hard-codes #1a6bbf / #1a3c6e here, so we override those literally. */
+a { color: #e91e63; }
+.site-nav a:hover,
+.entry-title a:hover { color: #e91e63; }

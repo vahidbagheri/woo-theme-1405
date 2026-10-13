@@ -1,0 +1,59 @@
+@use 'tags';
+@use '../shared/card-meta';
+
+// The blog guide and category archive use the same compact card layout.
+@mixin guide-card($image-height: 143px) {
+  .cn-card--grid-image {
+    --bs-aspect-ratio: 0;
+    height: $image-height;
+  }
+
+  .cn-card--grid-title,
+  .cn-card--grid-desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+// Grid card — template-parts/blog/card-grid.php — prefixes: card-, g-card
+.cn-card--grid-desc {
+  color: #717375;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+html:not([dir='rtl']) .cn-card--grid .cn-card--grid-footer {
+  flex-direction: row-reverse;
+}
+
+.home-news-section .cn-card--grid {
+  .cn-card--grid-title {
+    font-size: 14px !important;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    display: -webkit-box;
+  }
+  .cn-card--grid-desc {
+    font-size: 12px;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    display: -webkit-box;
+  }
+  .cn-card__date { font-size: 10px !important; }
+  .cn-card__read-more { font-size: 12px; }
+  .cn-card__read-more .iconly { font-size: 14px; }
+
+  @media (min-width: 992px) {
+    .cn-card--grid-desc { font-size: 16px; }
+    .cn-card__date { font-size: 12px !important; }
+    .cn-card__read-more { font-size: 14px; }
+    .cn-card__read-more .iconly { font-size: 16px; }
+  }
+}

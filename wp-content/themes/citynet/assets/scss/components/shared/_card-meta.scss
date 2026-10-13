@@ -1,0 +1,17 @@
+@use '../../abstracts/tokens' as *;
+
+// Cross-card metadata used by grid and popular cards.
+.cn-card__date {
+  color: $c-muted;
+}
+
+.cn-card__read-more {
+  color: $c-blue;
+  font-size: 13px;
+
+  &:hover {
+    opacity: .75;
+  }
+
+  .iconly { color: $c-blue; }
+}

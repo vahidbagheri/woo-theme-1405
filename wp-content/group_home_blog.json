@@ -1,0 +1,317 @@
+{
+  "key": "group_home_blog",
+  "title": "Blog homepage — Sections",
+  "fields": [
+    {
+      "key": "field_home_sections",
+      "label": "Homepage sections",
+      "name": "home_sections",
+      "type": "flexible_content",
+      "instructions": "Add, remove, or drag sections to reorder them. Each section displays a blog category; there is no need to enter cards manually.",
+      "required": 0,
+      "button_label": "Add section",
+      "min": "",
+      "max": "",
+      "layouts": {
+        "layout_featured": {
+          "key": "layout_featured",
+          "name": "featured",
+          "label": "1) Featured / Top slider",
+          "display": "block",
+          "min": "",
+          "max": "",
+          "sub_fields": [
+            {
+              "key": "field_feat_category",
+              "label": "Category",
+              "name": "category",
+              "type": "taxonomy",
+              "instructions": "Empty = latest posts from all categories.",
+              "taxonomy": "category",
+              "field_type": "select",
+              "add_term": 0,
+              "save_terms": 0,
+              "load_terms": 0,
+              "return_format": "id",
+              "multiple": 0,
+              "allow_null": 1
+            },
+            {
+              "key": "field_feat_count",
+              "label": "Post count",
+              "name": "count",
+              "type": "number",
+              "default_value": 5,
+              "min": 3,
+              "max": 8
+            }
+          ]
+        },
+        "layout_guide": {
+          "key": "layout_guide",
+          "name": "guide",
+          "label": "2) Travel guide (one category)",
+          "display": "block",
+          "min": "",
+          "max": "",
+          "sub_fields": [
+            {
+              "key": "field_guide_category",
+              "label": "Category",
+              "name": "category",
+              "type": "taxonomy",
+              "taxonomy": "category",
+              "field_type": "select",
+              "add_term": 0,
+              "save_terms": 0,
+              "load_terms": 0,
+              "return_format": "id",
+              "multiple": 0,
+              "allow_null": 0,
+              "required": 1
+            },
+            {
+              "key": "field_guide_count",
+              "label": "Post count",
+              "name": "count",
+              "type": "number",
+              "default_value": 4,
+              "min": 2,
+              "max": 12
+            },
+            {
+              "key": "field_guide_heading",
+              "label": "Heading (optional)",
+              "name": "heading",
+              "type": "text",
+              "instructions": "Empty = category name."
+            },
+            {
+              "key": "field_guide_more",
+              "label": "“View more” link (optional)",
+              "name": "more_link",
+              "type": "link",
+              "instructions": "Empty = the category archive page.",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_hero": {
+          "key": "layout_hero",
+          "name": "hero",
+          "label": "3) Full-width banner (Hero)",
+          "display": "block",
+          "min": "",
+          "max": "",
+          "sub_fields": [
+            {
+              "key": "field_hero_image",
+              "label": "Banner image",
+              "name": "image",
+              "type": "image",
+              "return_format": "id",
+              "preview_size": "large",
+              "library": "all",
+              "required": 1
+            },
+            {
+              "key": "field_hero_link",
+              "label": "Link (optional)",
+              "name": "link",
+              "type": "link",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_categories": {
+          "key": "layout_categories",
+          "name": "categories",
+          "label": "4) Categories (category slider)",
+          "display": "block",
+          "min": "",
+          "max": "",
+          "sub_fields": [
+            {
+              "key": "field_cats_heading",
+              "label": "Heading (optional)",
+              "name": "heading",
+              "type": "text",
+              "default_value": "Categories"
+            },
+            {
+              "key": "field_cats_terms",
+              "label": "Categories",
+              "name": "categories",
+              "type": "taxonomy",
+              "instructions": "Select the categories to display. Each card uses the latest post in that category for its image.",
+              "taxonomy": "category",
+              "field_type": "multi_select",
+              "add_term": 0,
+              "save_terms": 0,
+              "load_terms": 0,
+              "return_format": "id",
+              "multiple": 1,
+              "allow_null": 0,
+              "required": 1
+            },
+            {
+              "key": "field_cats_more",
+              "label": "“View more” link (optional)",
+              "name": "more_link",
+              "type": "link",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_travelogue": {
+          "key": "layout_travelogue",
+          "name": "travelogue",
+          "label": "5) Travelogue (one category)",
+          "display": "block",
+          "min": "",
+          "max": "",
+          "sub_fields": [
+            {
+              "key": "field_trv_category",
+              "label": "Category",
+              "name": "category",
+              "type": "taxonomy",
+              "taxonomy": "category",
+              "field_type": "select",
+              "add_term": 0,
+              "save_terms": 0,
+              "load_terms": 0,
+              "return_format": "id",
+              "multiple": 0,
+              "allow_null": 0,
+              "required": 1
+            },
+            {
+              "key": "field_trv_count",
+              "label": "Post count",
+              "name": "count",
+              "type": "number",
+              "default_value": 4,
+              "min": 2,
+              "max": 12
+            },
+            {
+              "key": "field_trv_heading",
+              "label": "Heading (optional)",
+              "name": "heading",
+              "type": "text",
+              "instructions": "Empty = category name."
+            },
+            {
+              "key": "field_trv_more",
+              "label": "“View more” link (optional)",
+              "name": "more_link",
+              "type": "link",
+              "instructions": "Empty = the category archive page.",
+              "return_format": "array"
+            }
+          ]
+        },
+        "layout_news": {
+          "key": "layout_news",
+          "name": "news",
+          "label": "6) News + Latest posts",
+          "display": "block",
+          "min": "",
+          "max": "",
+          "sub_fields": [
+            {
+              "key": "field_news_category",
+              "label": "News category",
+              "name": "news_category",
+              "type": "taxonomy",
+              "taxonomy": "category",
+              "field_type": "select",
+              "add_term": 0,
+              "save_terms": 0,
+              "load_terms": 0,
+              "return_format": "id",
+              "multiple": 0,
+              "allow_null": 1
+            },
+            {
+              "key": "field_news_count",
+              "label": "News count",
+              "name": "news_count",
+              "type": "number",
+              "default_value": 4,
+              "min": 2,
+              "max": 12
+            },
+            {
+              "key": "field_news_heading",
+              "label": "News heading (optional)",
+              "name": "news_heading",
+              "type": "text",
+              "instructions": "Empty = category name or “Tourism news”."
+            },
+            {
+              "key": "field_news_more",
+              "label": "News “View more” link (optional)",
+              "name": "news_more_link",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_latest_category",
+              "label": "Latest posts category (optional)",
+              "name": "latest_category",
+              "type": "taxonomy",
+              "instructions": "Empty = latest posts from all categories.",
+              "taxonomy": "category",
+              "field_type": "select",
+              "add_term": 0,
+              "save_terms": 0,
+              "load_terms": 0,
+              "return_format": "id",
+              "multiple": 0,
+              "allow_null": 1
+            },
+            {
+              "key": "field_latest_count",
+              "label": "Latest posts count",
+              "name": "latest_count",
+              "type": "number",
+              "default_value": 7,
+              "min": 2,
+              "max": 12
+            },
+            {
+              "key": "field_latest_heading",
+              "label": "Latest posts heading (optional)",
+              "name": "latest_heading",
+              "type": "text",
+              "default_value": "Latest posts"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "template-home-blog.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [
+    "the_content"
+  ],
+  "active": true,
+  "description": "Reorderable homepage sections; each section displays posts from one blog category.",
+  "show_in_rest": 0,
+  "modified": 1785056000
+}

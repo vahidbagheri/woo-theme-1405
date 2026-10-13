@@ -1,0 +1,139 @@
+@use '../../abstracts/tokens' as *;
+
+@mixin readable-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(3, 19, 38, .88) 0%,
+    rgba(3, 19, 38, .45) 40%,
+    transparent 75%
+  );
+  backdrop-filter: none;
+  content: '';
+  pointer-events: none;
+  -webkit-backdrop-filter: none;
+}
+
+@mixin readable-text {
+  h3,
+  p {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .45);
+  }
+
+  h3 { color: #fff; }
+  p { color: rgba(255, 255, 255, .9); }
+}
+
+// Featured card — template-parts/blog/card-featured.php — prefix: tb-
+.cn-card--featured {
+  &-tag {
+    display: inline-block;
+    padding: 4px 11px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, .5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  & {
+    border-radius: 18px;
+    background: #717375;
+
+    img {
+      z-index: 0;
+      transition: transform .5s ease;
+    }
+
+    &::before {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(0, 0, 0, .24);
+      backdrop-filter: blur(2px);
+      content: '';
+      pointer-events: none;
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    &:hover img { transform: scale(1.04); }
+  }
+
+  &-overlay {
+    inset: 0;
+    z-index: 2;
+  }
+
+  &-tag-top {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  &-text {
+    padding: 14px 16px 20px;
+
+    h3 { margin: 0 0 5px; color: #fff; font-weight: 600; line-height: 1.45; }
+    p { margin: 0; color: rgba(255, 255, 255, .62); font-size: 12.5px; line-height: 1.6; }
+  }
+
+  &-scroller {
+    gap: 12px;
+    padding-bottom: 4px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar { display: none; }
+    > .cn-card--featured { flex: 0 0 100%; height: 270px; scroll-snap-align: center; }
+    .cn-card--featured-text h3 { font-size: 17px; }
+    .cn-card--featured-text p { color: #fff; font-size: 12px; }
+  }
+
+  &-top-row,
+  &-bottom-row {
+    gap: 12px;
+
+    .cn-card--featured {
+      flex: 1;
+    }
+
+    .cn-card--featured-text {
+      h3,
+      p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        overflow: hidden;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &-top-row {
+    margin-bottom: 8px;
+
+    .cn-card--featured {
+      height: 300px;
+    }
+  }
+
+  &-bottom-row {
+    .cn-card--featured {
+      height: 248px;
+    }
+  }
+}

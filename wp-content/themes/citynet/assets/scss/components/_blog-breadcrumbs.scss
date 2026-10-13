@@ -1,0 +1,73 @@
+@use '../abstracts/tokens' as *;
+
+.cn-blog-breadcrumbs {
+  padding-block: 16px;
+  color: #3d3f40;
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: start;
+
+  .container {
+    max-width: $container-max-width-desktop;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  &__link {
+    color: inherit;
+
+    &:hover {
+      color: $c-link;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $c-link;
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+  }
+
+  &__current {
+    color: #0c0d0e;
+    font-weight: 600;
+  }
+
+  &__separator {
+    flex: 0 0 16px;
+  }
+
+  @media (min-width: 992px) {
+    padding-block: 24px;
+
+    .container {
+      padding-inline: 20px;
+    }
+  }
+}
+
+[dir='rtl'] .cn-blog-breadcrumbs__separator {
+  transform: rotate(180deg);
+}
+
+.home-blog-main > .cn-blog-breadcrumbs + section {
+  margin-block-start: 0 !important;
+}

@@ -1,0 +1,24 @@
+// ════════════════════════════════════════════════════════
+//  Citynet (WordPress) — abstracts/_tokens.scss
+//  Shared design tokens (colours, font, radii, spacing). This is a PARTIAL
+//  (leading underscore) so Live Sass Compiler never emits a CSS file for it —
+//  it only ships CSS through the files that @use it (global, pages, components).
+//
+//  Pull the tokens into any stylesheet with:
+//      @use '../abstracts/tokens' as *;   // then reference $c-blue, $gap, …
+//
+//  Marked !default so a child theme can reconfigure them when it recompiles:
+//      @use '.../abstracts/tokens' with ( $c-blue: #e91e63 );
+// ════════════════════════════════════════════════════════
+
+$font-family:  var(--cn-font-family) !default;
+$c-blue:       #023D78 !default;
+$c-link:       #0466C8 !default;
+$c-navy:       #1a3c6e !default;
+$c-navy-deep:  #1a1a6e !default;
+$c-bg:         #eef0f2 !default;
+$c-text:       #222 !default;
+$c-muted:      #5f6775 !default;   // accessible muted grey (>= 4.5:1 on light bg) — dates/secondary text
+$radius-card:  16px !default;
+$gap:          14px !default;
+$container-max-width-desktop: 1224px !default;

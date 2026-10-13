@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-21 21:35+0000\n"
+"PO-Revision-Date: 2026-08-05 16:44+0330\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 2.0.1\n"
+
+msgid "Iconly Font Icon"
+msgstr "فونت آیکون Iconly"
+
+msgid "Allow empty value"
+msgstr "اجازه دادن برای مقدار خالی"
+
+msgid "Show a button that clears the selected icon."
+msgstr "نمایش یک دکمه برای پاک کردن آیکون انتخاب شده."
+
+msgid "Show search"
+msgstr "نمایش جستجو"
+
+msgid "Allow searching by glyph name."
+msgstr "اجازه دادن برای جستجو توسط نام آیکون."
+
+msgid "Grid columns"
+msgstr "ستون‌های شبکه‌بندی"
+
+msgid "Number of icon columns on wide screens."
+msgstr "تعداد ستون‌های آیکون در نمایشگرهای عریض."
+
+msgid "ACF Iconly Font Picker requires Advanced Custom Fields to be active."
+msgstr "افزونه انتخاب فونت آیکون Iconly به افزونه ACF برای فعال بودن نیاز دارد."
+
+msgid "Choose an icon"
+msgstr "یک آیکون انتخاب کنید"
+
+msgid "Clear"
+msgstr "پاک"
+
+msgid "Search icons"
+msgstr "جستجوی آیکون‌ها"
+
+msgid "Search icons..."
+msgstr "جستجوی آیکون‌ها..."
+
+msgid "Available icons"
+msgstr "آیکون‌های قابل دسترس"
+
+msgid "Icons"
+msgstr "آیکون‌ها"
+
+msgid "The selected icon does not exist in the current SVG font."
+msgstr "آیکون انتخاب شده در فونت SVG فعلی وجود ندارد."
+
+msgid "Please select an icon."
+msgstr "لطفا یک آیکون انتخاب کنید."
+
+msgid "Selected icon:"
+msgstr "آیکون انتخاب شده:"
+
+msgid "Missing icon:"
+msgstr "آیکون گم شده:"
+
+msgid "No matching icons."
+msgstr "آیکون هماهنگی نیست."
+
+msgid "No icons were found in the SVG font file."
+msgstr "آیکونی در فایل SVG فونت پیدا نشد."

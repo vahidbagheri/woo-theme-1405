@@ -1,0 +1,10 @@
+Place these files in this directory, keeping the exact base filename "iconly":
+
+iconly.eot
+iconly.woff2
+iconly.woff
+iconly.ttf
+iconly.svg
+
+The SVG file must contain <glyph glyph-name="..." unicode="..."> elements.
+The picker ignores multi-character ligature aliases and uses one-character glyphs.

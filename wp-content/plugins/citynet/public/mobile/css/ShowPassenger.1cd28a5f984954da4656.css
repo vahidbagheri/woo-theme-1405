@@ -1,0 +1,1 @@
+@keyframes example{0%,to{top:-10px}50%{top:100%}}.barcode-img:after{position:absolute;left:50%;transform:translateX(-50%);content:"";height:2px;width:calc(100% + 20px);background:var(--v-blue-base);animation-duration:3s;animation-name:example;animation-iteration-count:infinite}.barcode-input-hidden .v-text-field__slot input{opacity:0!important}
