@@ -394,7 +394,7 @@ function cn_remove_jquery_migrate( $scripts ) {
 add_action( 'wp_default_scripts', 'cn_remove_jquery_migrate' );
 
 /**
- * Defer jQuery and remove styles unused in the current context.
+ * Remove styles unused in the current context.
  *
  * @return void
  */
@@ -403,7 +403,8 @@ function cn_optimize_frontend_assets() {
 		return;
 	}
 
-	wp_script_add_data( 'jquery-core', 'strategy', 'defer' );
+	// Keep WordPress's normal jQuery loading order: plugins such as Persian
+	// WooCommerce execute inline jQuery code before deferred scripts can run.
 	wp_dequeue_style( 'duplicate-post' );
 
 	if ( ! ( is_singular() && has_blocks() ) ) {
