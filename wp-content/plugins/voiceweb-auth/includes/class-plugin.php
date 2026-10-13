@@ -13,8 +13,9 @@ final class Plugin {
 		Settings::register();
 		UI::register();
 		add_action( 'rest_api_init', static function () {
-			$gateway = apply_filters( 'voiceweb_auth_sms_gateway', new SMS() );
-			( new Auth( new Database(), $gateway instanceof SMS ? $gateway : new SMS() ) )->register_routes();
+			$default = SMS::gateway();
+			$gateway = apply_filters( 'voiceweb_auth_sms_gateway', $default );
+			( new Auth( new Database(), $gateway instanceof SMS ? $gateway : $default ) )->register_routes();
 		} );
 	}
 	public static function path( string $path = '' ): string {

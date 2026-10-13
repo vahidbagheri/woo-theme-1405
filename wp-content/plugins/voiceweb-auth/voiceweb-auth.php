@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VoiceWeb Auth
  * Description: Mobile-first SMS login, verified registration and WooCommerce account navigation.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: VoiceWeb
  * Text Domain: voiceweb-auth
  * Requires at least: 6.3
@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'VOICEWEB_AUTH_FILE' ) ) {
 	define( 'VOICEWEB_AUTH_FILE', __FILE__ );
-	define( 'VOICEWEB_AUTH_VERSION', '1.0.0' );
+	define( 'VOICEWEB_AUTH_VERSION', '1.1.0' );
 	spl_autoload_register( static function ( $class ) {
 		$prefix = 'VoiceWeb\\Auth\\';
 		if ( str_starts_with( $class, $prefix ) ) {

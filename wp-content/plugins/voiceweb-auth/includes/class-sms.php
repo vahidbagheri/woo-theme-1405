@@ -3,7 +3,11 @@ namespace VoiceWeb\Auth;
 defined( 'ABSPATH' ) || exit;
 
 class SMS {
+	public const PROVIDER = 'mehrafraz';
 	public const ENDPOINT = 'https://mehrafraz.com/fullrest/api/Send';
+	public static function gateway(): SMS {
+		return Settings::provider() === 'kavenegar' ? new Kavenegar() : new self();
+	}
 	public function configured(): bool { return Settings::username() !== '' && Settings::password() !== ''; }
 	public function message( string $code ): string {
 		$host = (string) wp_parse_url( home_url( '/' ), PHP_URL_HOST );
@@ -28,8 +32,8 @@ class SMS {
 		// The provider documents Status=0 as success. HTTP 200 alone is insufficient.
 		return $status >= 200 && $status < 300 && is_array( $body ) && isset( $body['Status'], $body['ReturnCodes'] ) && ( is_int( $body['Status'] ) || is_string( $body['Status'] ) ) && (string) $body['Status'] === '0' && is_array( $body['ReturnCodes'] ) && count( $body['ReturnCodes'] ) === 1 && isset( $body['ReturnCodes'][0] ) && ( is_string( $body['ReturnCodes'][0] ) || is_int( $body['ReturnCodes'][0] ) ) && trim( (string) $body['ReturnCodes'][0] ) !== '';
 	}
-	private function diagnostic( int $http, string $code ): void {
+	protected function diagnostic( int $http, string $code ): void {
 		// No OTPs, message bodies, passwords, mobile numbers or raw responses are logged.
-		update_option( 'voiceweb_auth_sms_status', array( 'time' => time(), 'http_status' => $http, 'provider_status' => $code ), false );
+		update_option( 'voiceweb_auth_sms_status', array( 'time' => time(), 'provider' => static::PROVIDER, 'http_status' => $http, 'provider_status' => $code ), false );
 	}
 }
