@@ -367,6 +367,11 @@ handleهای آن‌ها `cn-page-contact` خواهد بود.
 
 ## ۷. dependency سفارشی
 
+صفحات ووکامرس نیز از همین مسیر بارگذاری می‌شوند. کلید `woocommerce` برای ظاهر عمومی
+فروشگاه، `woocommerce-account` برای حساب و `woocommerce-addresses` برای دفترچه و مودال است.
+هوک‌ها در `inc/woocommerce/assets.php` قرار دارند؛ [راهنمای این بخش](./WOOCOMMERCE.fa.md)
+مسیر partialهای Sass و وابستگی JavaScript تسویه‌حساب را توضیح می‌دهد.
+
 ترتیب پیش‌فرض:
 
 ```text

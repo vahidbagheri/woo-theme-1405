@@ -276,3 +276,77 @@ msgstr[1] "%s دیدگاه"
 #: inc/security.php
 msgid "The username or password is incorrect."
 msgstr "نام کاربری یا رمز عبور نادرست است."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Account"
+msgstr "حساب کاربری"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Account menu"
+msgstr "منوی حساب کاربری"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "View profile"
+msgstr "مشاهدهٔ پروفایل"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "My orders"
+msgstr "سفارش‌های من"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "My favorites"
+msgstr "علاقه‌مندی‌ها"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Log out"
+msgstr "خروج از حساب"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Add to favorites"
+msgstr "افزودن به علاقه‌مندی‌ها"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Remove from favorites"
+msgstr "حذف از علاقه‌مندی‌ها"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Choose product options first"
+msgstr "ابتدا گزینه‌های محصول را انتخاب کنید"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Updating favorites…"
+msgstr "در حال به‌روزرسانی…"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Product saved to your favorites."
+msgstr "محصول به علاقه‌مندی‌های شما اضافه شد."
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Product removed from your favorites."
+msgstr "محصول از علاقه‌مندی‌های شما حذف شد."
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Favorites could not be updated. Please try again."
+msgstr "به‌روزرسانی علاقه‌مندی‌ها انجام نشد. دوباره تلاش کنید."
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Log in to save favorites"
+msgstr "برای ذخیره در علاقه‌مندی‌ها وارد شوید"
+
+#: woocommerce/myaccount/dashboard.php
+msgid "%s awaiting payment"
+msgstr "%s در انتظار پرداخت"

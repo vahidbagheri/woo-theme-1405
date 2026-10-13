@@ -1,0 +1,16 @@
+.vw-commerce {
+  .vw-wishlist-actions { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; margin-block: 17px; }
+  .vw-wishlist-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 11px 16px; border: 1px solid var(--vw-border); background: #fff; border-radius: 12px; color: var(--vw-accent); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; svg { width: 20px; height: 20px; } &:disabled { opacity: .55; cursor: wait; } &[aria-pressed='true'] { color: #c84970; border-color: #f3d5df; background: #fff7fa; svg { fill: currentColor; } } }
+  .vw-wishlist-view { font-size: 12px; color: var(--vw-muted); }
+  .vw-wishlist-feedback { width: 100%; margin: 0; color: #348167; font-size: 12px; line-height: 1.9; &.is-error { color: #b14d62; } }
+  .wc-block-wishlist { padding: 23px; border: 1px solid var(--vw-border); border-radius: 21px; background: #fff; }
+  .wc-block-wishlist .wc-block-wishlist__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+  .wc-block-wishlist .wc-block-shopper-list-item { min-width: 0; padding: 16px; border: 1px solid var(--vw-border); border-radius: 17px; background: #f9fbfe; }
+  .wc-block-wishlist__empty { grid-column: 1 / -1; padding: 28px 10px; color: var(--vw-muted); font-size: 13px; }
+  .wc-block-wishlist button { border-radius: 11px; min-height: 44px; }
+  .wc-block-wishlist .wp-block-button__link { width: 100%; background: var(--vw-accent); color: #fff; font: inherit; font-size: 12px; border: 0; border-radius: 12px; padding: 12px 15px; }
+  .wc-block-wishlist .wp-block-post-title { font-size: 15px; line-height: 1.8; }
+  .wc-block-wishlist .wc-block-components-product-image { border-radius: 12px; overflow: hidden; }
+  @media (max-width: 767px) { .wc-block-wishlist { padding: 18px 14px; } .wc-block-wishlist .wc-block-wishlist__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+  @media (max-width: 399px) { .wc-block-wishlist .wc-block-wishlist__list { grid-template-columns: minmax(0, 1fr); } }
+}

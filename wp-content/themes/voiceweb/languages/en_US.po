@@ -267,3 +267,77 @@ msgstr[1] "%s comments"
 #: inc/security.php
 msgid "The username or password is incorrect."
 msgstr "The username or password is incorrect."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Account"
+msgstr "Account"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Account menu"
+msgstr "Account menu"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "View profile"
+msgstr "View profile"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "My orders"
+msgstr "My orders"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "My favorites"
+msgstr "My favorites"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Log out"
+msgstr "Log out"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Add to favorites"
+msgstr "Add to favorites"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Remove from favorites"
+msgstr "Remove from favorites"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Choose product options first"
+msgstr "Choose product options first"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Updating favorites…"
+msgstr "Updating favorites…"
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Product saved to your favorites."
+msgstr "Product saved to your favorites."
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Product removed from your favorites."
+msgstr "Product removed from your favorites."
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Favorites could not be updated. Please try again."
+msgstr "Favorites could not be updated. Please try again."
+
+#: template-parts/header/account-menu.php inc/woocommerce/wishlist.php
+msgid "Log in to save favorites"
+msgstr "Log in to save favorites"
+
+#: woocommerce/myaccount/dashboard.php
+msgid "%s awaiting payment"
+msgstr "%s awaiting payment"

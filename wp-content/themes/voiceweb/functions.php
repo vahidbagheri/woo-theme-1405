@@ -25,7 +25,7 @@ require_once get_template_directory() . '/inc/search.php';
 require_once get_template_directory() . '/inc/actions.php';
 require_once get_template_directory() . '/inc/filters.php';
 require_once get_template_directory() . '/inc/ajax-callbacks.php';
-require_once get_template_directory() . '/inc/Modules/loader.php';
+require_once get_template_directory() . '/inc/woocommerce.php';
 
 // Optional media URL versioning; enable when the site's cache policy needs it.
 // require_once get_template_directory() . '/inc/cache.php';

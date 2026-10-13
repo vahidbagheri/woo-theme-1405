@@ -60,6 +60,7 @@ final class UI {
 		<nav class="vwa-mobile-nav" aria-label="<?php echo esc_attr( Text::get( 'navigation' ) ); ?>" dir="<?php echo is_rtl() ? 'rtl' : 'ltr'; ?>">
 			<a class="vwa-mobile-nav__item<?php echo $is_home ? ' is-active' : ''; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" <?php echo $is_home ? 'aria-current="page"' : ''; ?>><?php echo self::icon( 'home' ); ?><span><?php echo esc_html( Text::get( 'home' ) ); ?></span></a>
 			<a class="vwa-mobile-nav__item<?php echo $is_shop ? ' is-active' : ''; ?>" href="<?php echo esc_url( $shop ); ?>" <?php echo $is_shop ? 'aria-current="page"' : ''; ?>><?php echo self::icon( 'shop' ); ?><span><?php echo esc_html( Text::get( 'shop' ) ); ?></span></a>
+			<?php do_action( 'voiceweb_auth/mobile_navigation_items' ); ?>
 			<a class="vwa-mobile-nav__item vwa-mobile-nav__account<?php echo $is_account ? ' is-active' : ''; ?>" href="<?php echo esc_url( self::account_url() ); ?>" <?php echo is_user_logged_in() ? ( $is_account ? 'aria-current="page"' : '' ) : 'data-vwa-open aria-haspopup="dialog" aria-controls="vwa-modal"'; ?>><?php echo self::icon( 'user' ); ?><span><?php echo esc_html( Text::get( is_user_logged_in() ? 'account' : 'login_register' ) ); ?></span></a>
 		</nav>
 		<?php

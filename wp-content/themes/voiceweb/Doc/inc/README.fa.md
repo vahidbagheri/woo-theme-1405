@@ -1,6 +1,6 @@
 # مرجع فایل‌های ریشهٔ `inc`
 
-منبع نهایی حقیقت، کد فعلی قالب است. فایل‌ها مستقیماً از `functions.php` بارگذاری می‌شوند و پوشهٔ `inc/Modules` autoloader مستقل دارد.
+منبع نهایی حقیقت، کد فعلی قالب است. فایل‌های زیر مستقیماً از `functions.php` بارگذاری می‌شوند.
 
 | فایل | مسئولیت اصلی | سند |
 |---|---|---|
@@ -15,5 +15,6 @@
 | `filters.php` | فیلترهای عمومی بدنه و منو | [راهنما](../INFRASTRUCTURE.fa.md) |
 | `ajax-callbacks.php` | اعتبارسنجی ورودی‌های AJAX | [راهنما](./ajax-callbacks.fa.md) |
 | `log.php` | رویدادها و اتصال به voiceweb_log | [راهنما](../INFRASTRUCTURE.fa.md) |
+| `woocommerce.php` | فایل ورودی، hookها، استایل حساب و دفترچهٔ آدرس | [راهنما](../WOOCOMMERCE.fa.md) |
 
-`helpers.php` با `get_theme_file_path()` resolve می‌شود تا چایلدتم بتواند پیاده‌سازی هم‌مسیر را جایگزین کند. عملکرد مربوط به صفحات و endpoint پنل VoiceWeb در خود پلاگین و فایل `wp-content/plugins/voiceweb/includes/integrations.php` نگهداری می‌شود.
+`helpers.php` با `get_theme_file_path()` resolve می‌شود تا چایلدتم بتواند پیاده‌سازی هم‌مسیر را جایگزین کند. فایل‌های معمول `inc/woocommerce/` از ورودی `woocommerce.php` خوانده می‌شوند و مسئولیت هرکدام در راهنمای ووکامرس مشخص است.

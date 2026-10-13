@@ -1,0 +1,18 @@
+@use 'abstracts/tokens' as *;
+
+.cn-account-menu {
+  position: relative;
+  &__trigger { display: inline-flex; align-items: center; justify-content: center; gap: 7px; background: #fff; font-family: inherit; cursor: pointer; > .iconly { font-size: 19px; } &[aria-expanded='true'] { background: #edf5ff; } }
+  &__chevron { font-size: 12px !important; transition: transform .15s; }
+  .cn-account-menu__trigger[aria-expanded='true'] { background: #edf5ff; color: $c-link; }
+  &__trigger[aria-expanded='true'] &__chevron { transform: rotate(180deg); }
+  &__panel { position: absolute; top: calc(100% + 12px); inset-inline-end: 0; width: 240px; max-width: calc(100vw - 32px); padding: 8px 12px 3px; background: #fff; border: 1px solid #e4eaf2; border-radius: 13px; box-shadow: 0 12px 35px rgba(26, 54, 78, .15); z-index: 120; white-space: normal; color: #647b91; &[hidden] { display: none; } &::before { content: ''; position: absolute; top: -6px; inset-inline-end: 22px; width: 11px; height: 11px; background: #fff; border-top: 1px solid #e4eaf2; border-left: 1px solid #e4eaf2; transform: rotate(45deg); } }
+  &__profile { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; padding: 12px 5px 17px; border-bottom: 1px solid #edf1f5; > div { min-width: 0; } strong { display: block; font-size: 13px; line-height: 1.8; font-weight: 600; overflow-wrap: anywhere; } bdi { font-variant-numeric: tabular-nums; } a { display: inline-block; padding-top: 9px; color: $c-link; font-size: 12px; } }
+  &__phone { display: block; margin-top: 5px; font-size: 12px; }
+  &__profile-icon { padding-top: 2px; font-size: 21px; }
+  &__link { display: flex; gap: 12px; align-items: center; min-height: 49px; padding: 12px 6px; border-bottom: 1px solid #edf1f5; color: #647b91; font-size: 13px; line-height: 1.8; .iconly { font-size: 21px; flex: 0 0 24px; } &:hover { color: $c-link; background: #f7faff; } &:last-child { border-bottom: 0; } }
+  &__link--logout { color: #e84d76; &:hover { color: #d83361; background: #fff7f9; } }
+  :is(button, a):focus-visible { outline: 3px solid rgba(4, 102, 200, .25); outline-offset: 2px; border-radius: 8px; }
+  @media (max-width: 1199.98px) { &__panel { display: none; } }
+  @media (prefers-reduced-motion: reduce) { &__chevron { transition: none; } }
+}

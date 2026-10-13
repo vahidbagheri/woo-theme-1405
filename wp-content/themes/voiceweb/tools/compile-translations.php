@@ -25,6 +25,10 @@ if ( ! is_file( $po_library ) || ! is_file( $mo_library ) ) {
 	exit( 1 );
 }
 
+// POMO can use newer PHP helpers; load WordPress's matching compatibility functions.
+if ( ! defined( 'ABSPATH' ) ) { define( 'ABSPATH', $wp_root . '/' ); }
+if ( ! defined( 'WPINC' ) ) { define( 'WPINC', 'wp-includes' ); }
+require_once $wp_root . '/wp-includes/compat.php';
 require_once $po_library;
 require_once $mo_library;
 

@@ -1,0 +1,17 @@
+@use 'abstracts/tokens' as *;
+
+.cn-header-cart {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 40px;
+  width: 40px; height: 36px; margin-inline: 8px 12px; border: 1px solid #d8e6f4; border-radius: 10px;
+  background: #f5faff; color: $c-link; transition: background-color .15s, border-color .15s;
+  > svg { width: 22px; height: 22px; }
+  &:hover, &.is-active { background: #e7f2ff; border-color: #9dc0eb; color: $c-link; }
+  &:focus-visible { outline: 3px solid rgba(4, 102, 200, .25); outline-offset: 3px; }
+  &__count {
+    position: absolute; top: -6px; inset-inline-end: -5px; display: flex; align-items: center; justify-content: center;
+    min-width: 19px; height: 19px; padding-inline: 4px; border: 2px solid #fff; border-radius: 9px;
+    background: #ec517f; color: #fff; font-size: 10px; font-weight: 700; line-height: 1;
+    font-variant-numeric: tabular-nums; white-space: nowrap; &[hidden] { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+}

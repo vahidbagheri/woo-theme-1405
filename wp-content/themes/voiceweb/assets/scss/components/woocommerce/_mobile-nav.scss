@@ -1,0 +1,11 @@
+@media (max-width: 1199.98px) {
+  .vwa-mobile-nav:has(.vw-mobile-cart) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .vw-mobile-cart__icon { position: relative; display: block; }
+  .vw-mobile-cart__count {
+    position: absolute; top: -7px; inset-inline-end: -11px; min-width: 17px; height: 17px; padding-inline: 4px;
+    display: flex; align-items: center; justify-content: center; border-radius: 8px;
+    color: #fff; background: #ec517f; border: 2px solid #fff; font-size: 9px; line-height: 1;
+    font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap;
+    &[hidden] { display: none; }
+  }
+}

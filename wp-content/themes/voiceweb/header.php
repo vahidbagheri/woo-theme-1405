@@ -203,7 +203,10 @@ $chevron_icon_args = array(
 					<bdi class="d-inline-flex align-items-center"><?php echo esc_html( cn_localize_digits( $phone ) ); ?></bdi>
 				</a>
 			<?php } ?>
-			<?php if ( function_exists( 'voiceweb_auth_account_link' ) ) { ?>
+			<?php if ( function_exists( 'voiceweb_wc_mobile_cart_count' ) ) { get_template_part( 'template-parts/header/cart-link' ); } ?>
+			<?php if ( is_user_logged_in() ) { ?>
+				<?php get_template_part( 'template-parts/header/account-menu' ); ?>
+			<?php } elseif ( function_exists( 'voiceweb_auth_account_link' ) ) { ?>
 				<?php echo voiceweb_auth_account_link( array( 'class' => 'cn-header-account d-inline-flex align-items-center justify-content-center text-decoration-none' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php } else { ?>
 				<a class="cn-header-account d-inline-flex align-items-center justify-content-center text-decoration-none" href="<?php echo esc_url( wp_login_url() ); ?>">

@@ -204,6 +204,7 @@ resolver helper چایلد-aware است، هنگام مشاهدهٔ فایل و�
 
 ## اسناد مرتبط
 
+- [ووکامرس، کلیدهای صفحه و هوک مستقل استایل حساب](../WOOCOMMERCE.fa.md)
 - [مرجع فونت‌ها](./fonts.fa.md)
 - [راهنمای JS و Sass](../JS-SASS-LOADING.fa.md)
 - [راهنمای کش](../CACHE.fa.md)

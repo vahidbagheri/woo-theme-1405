@@ -14,6 +14,7 @@
 | معماری اجرای درخواست و نقاط توسعه | [SYSTEM.fa.md](./SYSTEM.fa.md) |
 | قالب تکی هر نوع محتوا | [SINGLE-TEMPLATES.fa.md](./SINGLE-TEMPLATES.fa.md) |
 | بارگذاری `JavaScript`، `Sass` و `CSS` | [JS-SASS-LOADING.fa.md](./JS-SASS-LOADING.fa.md) |
+| طراحی ووکامرس، حساب کاربری و دفترچهٔ چندآدرسی | [WOOCOMMERCE.fa.md](./WOOCOMMERCE.fa.md) |
 | فونت چندزبانه | [FONTS.fa.md](./FONTS.fa.md) |
 | آموزش پله‌به‌پلهٔ افزودن فونت با شرح کد و عیب‌یابی | [FONT-ADDING-STEP-BY-STEP.fa.md](./FONT-ADDING-STEP-BY-STEP.fa.md) |
 | استفاده از `Yekan Bakh Variable` | [YEKAN-BAKH-VARIABLE.fa.md](./YEKAN-BAKH-VARIABLE.fa.md) |
@@ -175,8 +176,8 @@ voiceweb/
 │  ├─ security.php
 │  ├─ category.php
 │  ├─ cache.php                  # موجود، اما در وضعیت فعلی غیرفعال
-│  └─ Modules/
-│     └─ tour/                  # کلاس‌ها موجود؛ ثبت post type کامنت شده
+│  ├─ woocommerce.php           # فایل ورودی و hookهای ووکامرس
+│  └─ woocommerce/              # فایل‌های معمول PHP با مسئولیت مشخص
 ├─ template-parts/
 │  ├─ blog/
 │  ├─ header/
@@ -364,15 +365,12 @@ php wp-content/themes/voiceweb/tools/compile-translations.php fa_IR
   `template-parts/blog/card-{name}.php` رندر می‌کند.
 - کوئری‌های کارت و آرشیو با filter به نام `cn/query/args` قابل تغییرند.
 
-## ماژول‌ها
+## ووکامرس
 
-### ماژول Tour
-
-کلاس‌های post type، taxonomy، نقش و مدیریت Tour در `inc/Modules/tour/` وجود
-دارند، اما فراخوانی‌های `register_post_type()` و `register_taxonomy()` در وضعیت
-فعلی کامنت شده‌اند. بنابراین post type برابر `tour` و taxonomy آن فعال نیستند.
-بخش نقش‌ها همچنان اجرا می‌شود و می‌تواند نقش `cn_tour_manager` و capabilityهای
-Tour را یک‌بار بر اساس version داخلی ماژول ثبت کند.
+قالب، پوستهٔ فروشگاه، محصول، سبد، checkout و حساب را با فایل‌های سادهٔ
+`inc/woocommerce/` آماده می‌کند. دفترچهٔ چندآدرسی، مودال ثبت/ویرایش، کشور ایران و
+انتخاب آدرس هنگام خرید در همین پوشه قرار دارند. Sass و JavaScript با لودر موجود
+و کلیدهای مخصوص ووکامرس بارگذاری می‌شوند. [راهنمای کامل](./WOOCOMMERCE.fa.md)
 
 ## حریم خصوصی و بهینه‌سازی
 

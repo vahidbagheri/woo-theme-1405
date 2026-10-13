@@ -18,7 +18,7 @@ WordPress request
       │    ├─ helperها و تنظیمات ACF
       │    ├─ فونت و assetها
       │    ├─ جست‌وجو و حریم خصوصی
-      │    └─ ماژول‌های REST
+      │    └─ ووکامرس و API خصوصی دفترچهٔ آدرس
       │
       ├─ WordPress Template Hierarchy
       │    └─ template چایلد، سپس template والد
@@ -47,7 +47,7 @@ WordPress request
 
 1. theme supportها و text domainها؛
 2. walker هدر؛
-3. autoloader ماژول‌ها؛
+3. فایل‌های مستقیم PHP و ورودی `inc/woocommerce.php`؛
 4. حریم خصوصی؛
 5. فونت؛
 6. assetها؛
@@ -327,12 +327,11 @@ users sitemap       → حذف provider
 است. فعال‌کردن این فایل یک تغییر رفتاری جداگانه است و باید پس از تست تصاویر
 محتوا، `srcset` و CDN انجام شود.
 
-### post type تور
+### ووکامرس
 
-ماژول Tour boot می‌شود، اما خطوط ثبت post type و taxonomy کامنت هستند. در نتیجه
-محتوای `tour` در وردپرس ثبت نمی‌شود. متد نقش‌ها همچنان اجرا می‌شود و ممکن است
-نقش `cn_tour_manager` و capabilityهای Tour را بر اساس version ماژول اضافه کند؛
-این نقش‌ها به‌تنهایی post type را فعال نمی‌کنند.
+ووکامرس از فایل ورودی `inc/woocommerce.php` و توابع معمول فایل‌های
+`inc/woocommerce/` استفاده می‌کند. فایل‌های ظاهری با کلیدهای مخصوص صفحه وارد لودر موجود
+می‌شوند و مسیر حساب، دفترچهٔ آدرس و checkout در [راهنمای ووکامرس](./WOOCOMMERCE.fa.md) آمده است.
 
 ## جریان نمونهٔ یک نوشتهٔ بلاگ
 
