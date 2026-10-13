@@ -203,9 +203,13 @@ $chevron_icon_args = array(
 					<bdi class="d-inline-flex align-items-center"><?php echo esc_html( cn_localize_digits( $phone ) ); ?></bdi>
 				</a>
 			<?php } ?>
-			<a class="cn-header-account d-inline-flex align-items-center justify-content-center text-decoration-none" href="<?php echo esc_url( wp_login_url() ); ?>">
-				<?php echo esc_html( cn_header_text( 'login_register', 'Login / Register' ) ); ?>
-			</a>
+			<?php if ( function_exists( 'voiceweb_auth_account_link' ) ) { ?>
+				<?php echo voiceweb_auth_account_link( array( 'class' => 'cn-header-account d-inline-flex align-items-center justify-content-center text-decoration-none' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php } else { ?>
+				<a class="cn-header-account d-inline-flex align-items-center justify-content-center text-decoration-none" href="<?php echo esc_url( wp_login_url() ); ?>">
+					<?php echo esc_html( cn_header_text( 'login_register', 'Login / Register' ) ); ?>
+				</a>
+			<?php } ?>
 		</div>
 	</div>
 
