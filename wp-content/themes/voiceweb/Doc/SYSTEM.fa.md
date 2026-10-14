@@ -10,6 +10,10 @@
 ```text
 WordPress request
       │
+      ├─ افزونه‌های فعال → plugins_loaded
+      │    ├─ VoiceWeb Auth: هویت، پیامک و UI ورود
+      │    └─ VoiceWeb Payments: درگاه، وبهوک و رسید
+      │
       ├─ functions.php چایلد
       │    └─ hookها و قابلیت‌های اختصاصی سایت
       │
@@ -43,17 +47,19 @@ WordPress request
 
 ### والد
 
-`voiceweb/functions.php` به‌ترتیب کلی این بخش‌ها را آماده می‌کند:
+`voiceweb/functions.php` پس از guard و مقدار پیش‌فرض `content_width`، فایل‌ها را با
+ترتیب `require_once` زیر آماده می‌کند:
 
-1. theme supportها و text domainها؛
-2. walker هدر؛
-3. فایل‌های مستقیم PHP و ورودی `inc/woocommerce.php`؛
-4. حریم خصوصی؛
-5. فونت؛
-6. assetها؛
-7. helperها، ACF و بهینه‌سازی‌ها؛
-8. تنظیمات سایت؛
-11. جست‌وجوی هدر.
+```text
+helpers.php → security.php → log.php → fonts.php → assets.php
+→ acf-field-groups.php → admin.php → site-settings.php → search.php
+→ actions.php → filters.php → ajax-callbacks.php → woocommerce.php
+```
+
+ثبت hook با اجرای callback آن یکسان نیست؛ callbackها در مرحلهٔ متناظر وردپرس اجرا می‌شوند.
+برای نمونه، `cn_setup_theme()` در `inc/actions.php` تعریف و روی `after_setup_theme` ثبت است.
+افزونه‌های فعال پیش از functions قالب بارگذاری شده‌اند. در حالت واردکردن یک‌خطی Auth
+در functions نیز bootstrap آن وضعیت `plugins_loaded` را بررسی می‌کند تا بوت از دست نرود.
 
 فایل `inc/cache.php` در این مرحله require نمی‌شود و غیرفعال است.
 
@@ -88,15 +94,14 @@ voiceweb/template-parts/blog/card-grid.php
 ### ماژول PHP
 
 بیشتر فایل‌های `inc/` با `get_template_directory()` require می‌شوند و فقط متعلق
-به والد هستند. دو helper زیر با `get_theme_file_path()` بارگذاری می‌شوند:
+به والد هستند. فقط helper زیر با `get_theme_file_path()` بارگذاری می‌شود:
 
 ```text
 inc/helpers.php
-inc/acf-field-groups.php
 ```
 
-بنابراین این دو فایل قابلیت override کامل در چایلد دارند، هرچند برای تغییر کوچک
-استفاده از hook امن‌تر است.
+بنابراین فقط این فایل قابلیت override کامل در چایلد دارد؛ برای تغییر کوچک از hook
+استفاده کن. `inc/acf-field-groups.php` از والد می‌آید.
 
 ## انتخاب template
 
@@ -327,11 +332,21 @@ users sitemap       → حذف provider
 است. فعال‌کردن این فایل یک تغییر رفتاری جداگانه است و باید پس از تست تصاویر
 محتوا، `srcset` و CDN انجام شود.
 
-### ووکامرس
+## ووکامرس فعال و افزونه‌های مستقل
 
 ووکامرس از فایل ورودی `inc/woocommerce.php` و توابع معمول فایل‌های
 `inc/woocommerce/` استفاده می‌کند. فایل‌های ظاهری با کلیدهای مخصوص صفحه وارد لودر موجود
 می‌شوند و مسیر حساب، دفترچهٔ آدرس و checkout در [راهنمای ووکامرس](./WOOCOMMERCE.fa.md) آمده است.
+
+`inc/woocommerce.php` فایل‌های عادی address-store، address-api، assets، account، checkout،
+templates، mobile-navigation، wishlist، orders و catalog را بارگذاری می‌کند. چارچوب
+`inc/Modules` و کلاس‌های Tour حذف شده‌اند و نباید به‌عنوان زیرساخت این بخش برگردند.
+
+Auth و Payments در `wp-content/plugins/` می‌مانند و دارایی‌های خود را جدا بارگذاری می‌کنند.
+قالب، UI حساب/فروشگاه را دارد؛ Auth مالک هویت تأییدشده و Payments مالک تأیید پرداخت است.
+ایجاد سفارش، مالیات، حمل، وضعیت و موجودی همچنان با API بومی ووکامرس انجام می‌شوند.
+جزئیات در [ورود](./AUTH.fa.md)، [پرداخت](./PAYMENTS.fa.md) و
+[سند تحویل](./HANDOFF.fa.md) آمده است.
 
 ## جریان نمونهٔ یک نوشتهٔ بلاگ
 
@@ -371,6 +386,9 @@ users sitemap       → حذف provider
 | asset و context صفحه | `inc/assets.php` |
 | فونت | `config/fonts.php` و `inc/fonts.php` |
 | تنظیمات سایت | `inc/site-settings.php` |
+| دفترچه، سفارش‌های حساب، علاقه‌مندی و فیلتر فروشگاه | `inc/woocommerce/` |
+| هویت و سرویس پیامک | `wp-content/plugins/voiceweb-auth/` |
+| پرداخت و رسید | `wp-content/plugins/voiceweb-payments/` |
 | رفتار اختصاصی سایت | `voiceweb-child/functions.php` |
 | style منبع | `assets/scss/` |
 | style قابل استفادهٔ مرورگر | `assets/css/` |

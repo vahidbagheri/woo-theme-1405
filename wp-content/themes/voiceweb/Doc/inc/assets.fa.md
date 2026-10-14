@@ -6,7 +6,8 @@
 
 این فایل لودر مرکزی assetهای فرانت‌اند قالب است: resolve فایل والد/چایلد،
 نسخه‌گذاری، Bootstrap، فونت، asset سراسری، کامپوننت، صفحه، دیدگاه و extension
-جاوااسکریپت چایلد. اسکریپت‌ها در فوتر و با strategy برابر `defer` ثبت می‌شوند.
+جاوااسکریپت چایلد. اسکریپت‌های خود قالب در فوتر و با strategy برابر `defer` ثبت می‌شوند؛
+jQuery ترتیب بومی WordPress را برای سازگاری inline شهرهای ووکامرس فارسی حفظ می‌کند.
 
 ## قرارداد resolve و نسخه
 
@@ -60,6 +61,12 @@ Bootstrap، handle همان `cn-bootstrap` نیز اضافه می‌شود.
 شرط‌ها به ترتیب داخل تابع بررسی می‌شوند. فیلتر `cn/page-keys` می‌تواند کلیدی
 مانند `categories` را اضافه کند. وجود کلید الزاماً به معنی enqueue نیست؛ فایل
 متناظر نیز باید روی دیسک وجود داشته باشد.
+
+ورودی فعال ووکامرس پنج کلید دیگر از همین filter اضافه می‌کند: `woocommerce`،
+`woocommerce-account`، `woocommerce-addresses`، `woocommerce-wishlist` و
+`woocommerce-catalog`. شرایط دقیق هرکدام در [راهنمای ووکامرس](../WOOCOMMERCE.fa.md) است؛
+order-pay خرید جدید نیست و asset دفترچهٔ checkout در آن لود نمی‌شود. assetهای مستقل Auth
+و Payments از لودر خود افزونه می‌آیند.
 
 ## asset کامپوننت
 

@@ -368,9 +368,16 @@ handleهای آن‌ها `cn-page-contact` خواهد بود.
 ## ۷. dependency سفارشی
 
 صفحات ووکامرس نیز از همین مسیر بارگذاری می‌شوند. کلید `woocommerce` برای ظاهر عمومی
-فروشگاه، `woocommerce-account` برای حساب و `woocommerce-addresses` برای دفترچه و مودال است.
+فروشگاه، `woocommerce-account` برای حساب، `woocommerce-addresses` برای دفترچه و مودال،
+`woocommerce-wishlist` برای علاقه‌مندی و `woocommerce-catalog` برای آرشیو و فیلترها است.
 هوک‌ها در `inc/woocommerce/assets.php` قرار دارند؛ [راهنمای این بخش](./WOOCOMMERCE.fa.md)
 مسیر partialهای Sass و وابستگی JavaScript تسویه‌حساب را توضیح می‌دهد.
+
+کامپوننت‌های ریشهٔ `header-account`، `header-cart` و `woocommerce-mobile-nav` نیز با
+discovery موجود بارگذاری می‌شوند؛ آن‌ها را دوباره دستی enqueue نکن. assetهای افزونه‌های
+Auth و Payments لودر مستقل خودشان را دارند و زیر کلیدهای صفحهٔ قالب منتقل نمی‌شوند.
+jQuery ترتیب بومی وردپرس را برای سازگاری کد inline شهرهای ووکامرس فارسی حفظ می‌کند؛
+راهبرد footer/defer توضیح‌داده‌شده برای اسکریپت‌های خود قالب است.
 
 ترتیب پیش‌فرض:
 

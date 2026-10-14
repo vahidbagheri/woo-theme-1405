@@ -34,7 +34,7 @@
 همهٔ مسیرهای نسبی این آموزش از ریشهٔ وردپرس، یعنی مسیر زیر، شروع می‌شوند:
 
 ```text
-C:\Users\123\Local Sites\base1405\app\public
+C:\Users\123\Local Sites\woo-theme-1405\app\public
 ```
 
 | فایل | نقش در این سناریو |

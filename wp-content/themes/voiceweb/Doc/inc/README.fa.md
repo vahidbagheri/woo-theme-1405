@@ -15,6 +15,9 @@
 | `filters.php` | فیلترهای عمومی بدنه و منو | [راهنما](../INFRASTRUCTURE.fa.md) |
 | `ajax-callbacks.php` | اعتبارسنجی ورودی‌های AJAX | [راهنما](./ajax-callbacks.fa.md) |
 | `log.php` | رویدادها و اتصال به voiceweb_log | [راهنما](../INFRASTRUCTURE.fa.md) |
-| `woocommerce.php` | فایل ورودی، hookها، استایل حساب و دفترچهٔ آدرس | [راهنما](../WOOCOMMERCE.fa.md) |
+| `woocommerce.php` | ورودی حساب، آدرس، checkout، سفارش، علاقه‌مندی و کاتالوگ | [راهنما](../WOOCOMMERCE.fa.md) |
 
 `helpers.php` با `get_theme_file_path()` resolve می‌شود تا چایلدتم بتواند پیاده‌سازی هم‌مسیر را جایگزین کند. فایل‌های معمول `inc/woocommerce/` از ورودی `woocommerce.php` خوانده می‌شوند و مسئولیت هرکدام در راهنمای ووکامرس مشخص است.
+
+برای مرز قالب و افزونه‌های مستقل ورود/پرداخت، تصمیم‌های این گفتگو و وضعیت فعلی پروژه،
+[سند تحویل](../HANDOFF.fa.md) را بخوان. ساختار قدیمی `inc/Modules` حذف شده است.

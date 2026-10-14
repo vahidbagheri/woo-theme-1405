@@ -491,8 +491,9 @@ cn_header_text( 'login_register', 'Login / Register' );
 
 ### فرمان `php` شناخته نمی‌شود
 
-PHP CLI در PATH سیستم نیست. مسیر کامل فایل اجرایی PHP را استفاده کن یا پوشهٔ PHP
-را به PATH اضافه کن.
+اگر این خطا را دیدی، PHP CLI در PATH همان ترمینال نیست. مسیر کامل فایل اجرایی PHP
+را استفاده کن یا پوشهٔ PHP را به PATH اضافه کن. در محیط بررسی‌شدهٔ این پروژه، PHP
+از Herd Lite در PATH موجود است؛ مسیر و فرمان‌ها در [RUNBOOK.fa.md](./RUNBOOK.fa.md) آمده‌اند.
 
 ### پیام `No matching PO catalogs were found`
 

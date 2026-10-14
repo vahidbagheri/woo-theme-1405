@@ -2,6 +2,10 @@
 
 [راهنمای اصلی قالب](./README.fa.md) · [قرارداد Sass و JavaScript](./JS-SASS-LOADING.fa.md)
 
+آخرین تطبیق: ۱۴ اکتبر ۲۰۲۶. تصمیم‌های گفتگو در [سند تحویل](./HANDOFF.fa.md)، ورود و
+پیامک در [AUTH](./AUTH.fa.md)، درگاه‌ها در [PAYMENTS](./PAYMENTS.fa.md) و وضعیت محیط و
+فرمان‌های آزمون در [RUNBOOK](./RUNBOOK.fa.md) آمده‌اند.
+
 کدهای این بخش داخل خود قالب قرار دارند و از فایل ورودی سادهٔ
 [`inc/woocommerce.php`](../inc/woocommerce.php) بارگذاری می‌شوند. هر فایل یک مسئولیت مشخص دارد؛
 کلاس، autoloader یا چارچوب ماژول جداگانه‌ای برای این بخش وجود ندارد.
@@ -57,7 +61,7 @@ assets/scss/pages/woocommerce-catalog.scss   → assets/css/pages/woocommerce-ca
 ```
 
 partialها در `assets/scss/components/woocommerce/` قرار دارند. رنگ‌های اصلی از
-`abstracts/_tokens.scss` می‌آیند و CSS سفارشی فقط زیر `body.vw-commerce` اثر می‌گذارد.
+`assets/scss/abstracts/_tokens.scss` می‌آیند و CSS سفارشی فقط زیر `body.vw-commerce` اثر می‌گذارد.
 entry فروشگاه، partialهای پایه، کاتالوگ، محصول، سبد/checkout و سفارش‌ها را جداگانه `@use` می‌کند.
 account و addresses نیز entryهای جدا دارند. CSS دستی را ویرایش نکن؛ تغییر را در Sass بده و کامپایل کن:
 
@@ -69,8 +73,9 @@ npx sass wp-content/themes/voiceweb/assets/scss/pages/woocommerce-wishlist.scss 
 npx sass wp-content/themes/voiceweb/assets/scss/pages/woocommerce-catalog.scss wp-content/themes/voiceweb/assets/css/pages/woocommerce-catalog.css --no-source-map --style=compressed
 ```
 
-فیلتر `cn/page-keys` کلیدهای `woocommerce`، `woocommerce-account` و `woocommerce-addresses`
-را اضافه می‌کند. لودر مرکزی، فایل‌های آن‌ها را فقط در context لازم و با نسخهٔ `filemtime()` پیدا می‌کند.
+فیلتر `cn/page-keys` پنج کلید `woocommerce`، `woocommerce-account`، `woocommerce-addresses`،
+`woocommerce-wishlist` و `woocommerce-catalog` را اضافه می‌کند. لودر مرکزی، فایل‌های آن‌ها
+را فقط در context لازم و با نسخهٔ `filemtime()` پیدا می‌کند.
 فایل هم‌مسیر چایلد، جای والد را می‌گیرد؛ `*-child.js` نیز طبق قرارداد موجود، رفتار را extend می‌کند.
 
 ### هوک جدا برای سایدبار و حساب
@@ -84,6 +89,21 @@ add_filter( 'voiceweb/woocommerce/account-styles', '__return_false' );
 
 برای تغییر معمولی، فایل `assets/scss/pages/woocommerce-account.scss` چایلد را بساز و partial
 والد را طبق راهنمای Sass وارد کن؛ نیازی به enqueue دستی نیست.
+
+منوی حساب در موبایل **عمودی و زیر هم** است؛ carousel یا اسکرول افقی گزینه‌ها ندارد.
+کارت هویت و آیتم‌های منو برای عرض کوچک و لمس طراحی شده‌اند. این سایدبار با نوار ثابت
+پایین Auth دو جزء متفاوت است؛ نوار پایین در این قالب چهار آیتم خانه، فروشگاه، سبد و حساب دارد.
+
+| کلید asset | محدودهٔ بارگذاری |
+|---|---|
+| `woocommerce` | فروشگاه، محصول، سبد، checkout و حساب |
+| `woocommerce-account` | حساب؛ مشروط به hook مستقل استایل |
+| `woocommerce-addresses` | حساب یا checkout جدید؛ نه order-pay و نه order-received |
+| `woocommerce-wishlist` | محصول یا endpoint علاقه‌مندی حساب، در صورت فعال‌بودن feature |
+| `woocommerce-catalog` | آرشیو محصول شامل shop و taxonomyهای محصول |
+
+assetهای افزونهٔ Auth/Payments مستقل‌اند. جدول بالا مجوز انتقال استایل فروشگاه به افزونهٔ
+ورود نیست؛ قرارداد نهایی کاربر نگهداری این بخش در Sass/JS قالب بوده است.
 
 ## منوی هدر و علاقه‌مندی‌ها
 
@@ -109,6 +129,10 @@ WooCommerce → Settings → Advanced → Features → Wishlists فعال کن. 
 معتبر دارند؛ API بومی مالکیت فهرست را کنترل می‌کند. حذف موفق `204` با پاسخ خالی است.
 JS در `assets/js/pages/woocommerce-wishlist.js` و استایل دکمه/فهرست در
 `assets/scss/components/woocommerce/_wishlist.scss` قرار دارند.
+
+JS nonce تازهٔ پاسخ را نگه می‌دارد، timeout شبکه ۲۰ثانیه‌ای دارد و تغییر variation حین
+درخواست را مدیریت می‌کند. پاسخ ۲۰۴ را JSON اجباری parse نکن. برای مهمان مسیر ورود با
+بازگشت به محصول فراهم می‌شود؛ مشتری دیگر نباید بتواند فهرست خصوصی را بخواند.
 
 `tools/test-account-menu-browser.cjs` با مشتریان و محصولات موقت، کلیک هدر، صفحه‌کلید،
 ورود مهمان، ذخیره/حذف، محصول متغیر، موبایل و عدم دسترسی به فهرست مشتری دیگر را بررسی می‌کند.
@@ -162,6 +186,12 @@ JavaScript یا API دفترچه وابسته نیست و آدرس دفترچه 
 ویرایش یا حذف با revision قدیمی رد می‌شود؛ mutationهای یک مالک در تراکنش سری می‌شوند.
 حذف کاربر، دفترچهٔ او را هم حذف می‌کند. تغییر قالب، جدول و آدرس‌ها را حذف نمی‌کند.
 
+ستون‌ها `id`، `user_id`، `data`، `is_default`، `revision`، `created_at` و `updated_at` هستند؛
+option نسخه `voiceweb_addressbook_version` و marker واردکردن قدیمی
+`_voiceweb_addressbook_imported` است. قفل ردیف مالک در جدول users و تراکنش InnoDB از
+چند پیش‌فرض/ویرایش هم‌زمان جلوگیری می‌کنند. حذف پیش‌فرض، یکی از باقی‌مانده‌ها را جایگزین
+می‌کند؛ حذف آخرین آدرس فیلدهای متناظر native customer را خالی می‌کند.
+
 endpointها زیر `/wp-json/voiceweb/v1/addresses` هستند:
 
 | درخواست | کار |
@@ -176,6 +206,11 @@ endpointها زیر `/wp-json/voiceweb/v1/addresses` هستند:
 همهٔ درخواست‌ها ورود، `X-WP-Nonce` معتبر و origin همین سایت را بررسی می‌کنند.
 مالک از کاربر جاری گرفته می‌شود و از ورودی مشتری پذیرفته نمی‌شود. پاسخ‌ها `no-store` هستند
 و متن مشتری در کارت‌ها با `textContent` قرار می‌گیرد.
+
+رکورد مالک دیگر ۴۰۴، revision قدیمی ۴۰۹ و ورودی نامعتبر ۴۰۰ است. country ورودی مشتری
+نمی‌تواند ایران را دور بزند. مودال فوکوس، Escape، غیرفعال‌کردن پس‌زمینه و viewport موبایل
+را مدیریت می‌کند؛ درخواست شبکه ۲۰ثانیه timeout دارد. `pw-iran-cities` در صورت ثبت‌شدن به
+dependency همین asset اضافه می‌شود؛ ترتیب jQuery را برای رفع خطای شهرها بی‌بررسی تغییر نده.
 
 ## اتصال به checkout
 
@@ -225,12 +260,35 @@ endpointها زیر `/wp-json/voiceweb/v1/addresses` هستند:
 پنل‌ها بالای هدر و نوار پایین باز می‌شوند و فوکوس را نگه می‌دارند. تغییرات موبایل
 موقت‌اند؛ دکمهٔ نمایش آن‌ها را اعمال می‌کند و بستن پنل آن‌ها را لغو می‌کند.
 
+مکث خودکار دسکتاپ ۲۲۰ میلی‌ثانیه است؛ قیمت تایپی/جست‌وجو با دکمه یا Enter اعمال می‌شوند.
+فرم واحد به dialog موبایل منتقل می‌شود، کپی دوم ساخته نمی‌شود. Escape/بستن/کلیک backdrop
+انتخاب‌ها را به snapshot اعمال‌شده برمی‌گردانند. پاک‌کردن در پنل موبایل تا دکمهٔ نمایش
+فقط draft را تغییر می‌دهد. مرتب‌سازی در پنل جدا بلافاصله با انتخاب اعمال می‌شود.
+ارتفاع هدر fixed/sticky برای offset سایدبار/toolbar اندازه‌گیری می‌شود؛ dialog در top layer
+بالای هدر و نوار پایین است و body پس‌زمینه اسکرول نمی‌خورد.
+
+### قرارداد جهت کنترل قیمت
+
+در RTL فارسی دستگیرهٔ **راست حداقل («از»)** و دستگیرهٔ **چپ حداکثر («تا»)** است؛ هرکدام
+فقط ورودی متناظر را به‌روز می‌کند. `direction: ltr` اجباری از بدنهٔ `.vw-price-slider`
+برداشته شده و rangeها `direction: inherit` دارند. `syncPrice()` جهت computed خود range را
+می‌خواند و چپ/راست نوار آبی را بر همان مبنا محاسبه می‌کند. در LTR، حداقل چپ و حداکثر راست
+است. جهت متن عدد داخل input می‌تواند LTR بماند؛ آن را با جهت محور range اشتباه نگیر.
+تست کاتالوگ با حرکت واقعی pointer هر دو دستگیره را بررسی می‌کند؛ بررسی value با JS تنها
+برای جلوگیری از برگشت این ایراد کافی نیست.
+
 فرم GET و لینک‌ها بدون JavaScript نیز کار می‌کنند. در حالت JS، HTML نتایج از
 همان صفحهٔ عمومی فروشگاه دریافت می‌شود؛ مسیر API یا nonce خصوصی برای کاتالوگ
 وجود ندارد. URL، تاریخچهٔ مرورگر و صفحه‌بندی با فیلترها هماهنگ می‌شوند. تغییر
 فیلتر یا مرتب‌سازی به صفحهٔ اول برمی‌گردد. درخواست قبلی هنگام انتخاب جدید لغو
 می‌شود؛ در خطای شبکه، انتخاب‌ها باقی می‌مانند و ارسال مجدد ممکن است. پس از
 تغییر نتایج رویداد `voiceweb:catalog-updated` برای توسعهٔ رفتار سایر اجزا منتشر می‌شود.
+
+درخواست HTML، cookie همان سایت و header `X-VoiceWeb-Catalog: 1` دارد؛ timeout بیست‌ثانیه‌ای،
+AbortController و شمارهٔ درخواست مانع اعمال پاسخ قدیمی می‌شوند. scroll در history نگهداری
+می‌شود. حد قیمت از lookup عمومی محصول والد همان archive و محدودیت visibility/مخفی‌بودن
+می‌آید؛ فیلتر انتخاب‌شده سقف را مجدداً کوچک نمی‌کند. این فیلترها query ادمین، وبلاگ، جست‌وجوی
+عمومی یا query محصول جانبی را تغییر نمی‌دهند.
 
 پارامترهای افزودهٔ قالب: `vw_category`، `vw_brand`، `vw_search`، `vw_stock` و
 `vw_sale`. پارامترهای بومی: `min_price`، `max_price`، `orderby`، `rating_filter`،
@@ -262,3 +320,7 @@ node wp-content/themes/voiceweb/tools/test-woocommerce-browser.cjs
 
 حالت «به‌زودی»، شیوه‌های ارسال و درگاه‌های پرداخت، تنظیمات خود فروشگاه هستند و این طراحی آن‌ها را
 فعال نمی‌کند. مدیر می‌تواند طراحی را در حالت پیش‌نمایش ببیند.
+
+آزمون‌های تکمیلی account menu، orders و catalog و اختلاف شناخته‌شدهٔ تست قدیمی Auth در
+[راهنمای اجرای تست](./RUNBOOK.fa.md) آمده‌اند. نتایج قبلی گفتگو شواهد همان مرحله‌اند؛
+نوبت مستندسازی این تست‌های کاربردی را دوباره اجرا نکرده است.

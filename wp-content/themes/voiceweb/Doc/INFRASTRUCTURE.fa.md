@@ -54,7 +54,9 @@ php wp-content/themes/voiceweb/tools/protect-directories.php --check
 app/voiceweb-log/<Jalali-date>/activity.log
 ```
 
-برای این نصب، مسیر `C:/Users/123/Local Sites/base1405/app/voiceweb-log` است.
+برای این نصب، مسیر پیش‌فرض نسخهٔ همراه قالب
+`C:/Users/123/Local Sites/woo-theme-1405/app/voiceweb-log` است؛ از پوشهٔ والد `ABSPATH`
+ساخته می‌شود و بیرون `public` قرار دارد.
 اگر هاست اجازهٔ نوشتن در این مسیر ندارد، یک مسیر خصوصی و قابل‌نوشتن در
 `wp-config.php` با `CN_LOG_DIR` مشخص شود. این ثابت مخصوص نسخهٔ همراه قالب است؛
 تعریف قبلی تابع لاگ ممکن است تنظیمات مستقل خود را داشته باشد.
