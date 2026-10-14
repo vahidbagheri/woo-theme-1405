@@ -1,0 +1,69 @@
+// Standalone plugin styles. All selectors stay inside the payment component.
+.vwp-payment {
+  --vwp-blue: #0466c8;
+  color: #123c56; background: #fff; border: 1px solid #dce8f3; border-radius: 24px;
+  padding: clamp(20px, 4vw, 36px); margin: 24px 0 32px; box-shadow: 0 12px 40px rgba(15, 50, 80, .045);
+  box-sizing: border-box; overflow-wrap: anywhere; scroll-margin-top: 120px; text-align: start;
+  *, *::before, *::after { box-sizing: border-box; }
+  h2, h3, p { margin: 0; }
+  h2 { font-size: clamp(21px, 3vw, 28px); line-height: 1.7; }
+  h3 { font-size: 20px; }
+  &__header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  &__icon { display: grid; place-items: center; width: 56px; height: 56px; flex-shrink: 0; border-radius: 18px; color: var(--vwp-blue); background: #edf6ff; font-size: 30px; }
+  &__eyebrow { color: #688098; font-size: 13px; }
+  &__total { margin-inline-start: auto; font-size: 20px; font-weight: 700; white-space: nowrap; }
+  &__status { background: #edf6ff; border-radius: 14px; padding: 16px; line-height: 1.9; margin-bottom: 24px !important; font-weight: 600; }
+  &[data-state=paid] &__status { background: #e9f8f0; color: #087b4d; }
+  &[data-state=expired] [data-vwp-bale-link], &[data-state=failed] [data-vwp-bale-link] { display: none; }
+  &__warning { background: #fff6df; color: #865500; border: 1px solid #fae5ad; padding: 14px 18px; border-radius: 12px; line-height: 1.9; margin: 16px 0 !important; }
+  &__intro, &__steps { line-height: 2; margin-bottom: 20px !important; }
+  &__steps { padding-inline-start: 24px; }
+  &__hint { color: #617b92; font-size: 13px; line-height: 1.9; }
+  &__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  button, input, textarea { font: inherit; }
+  button { cursor: pointer; }
+  button:disabled { cursor: wait; opacity: .65; }
+  :focus-visible { outline: 3px solid #66b6fa; outline-offset: 3px; }
+  .vwp-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border: 0; border-radius: 14px; background: var(--vwp-blue); color: #fff; text-decoration: none; font-weight: 700; line-height: 1.7; transition: background .15s; }
+  .vwp-button:hover { background: #034f9c; }
+  .vwp-button--secondary { background: #edf6ff; color: var(--vwp-blue); }
+  .vwp-button--secondary:hover { background: #e0efff; }
+  .vwp-bank-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 16px; margin-bottom: 28px; }
+  .vwp-bank-card { border-radius: 20px; padding: 24px; background: linear-gradient(135deg, #123c56, #096ca6); color: #fff; box-shadow: 0 10px 24px rgba(15, 64, 100, .12); }
+  .vwp-bank-card__bank { display: block; font-size: 13px; opacity: .8; }
+  .vwp-bank-card__number { display: block; direction: ltr; text-align: start; font-size: clamp(20px, 3vw, 27px); font-variant-numeric: tabular-nums; letter-spacing: .04em; margin: 24px 0; white-space: nowrap; }
+  .vwp-bank-card__footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+  .vwp-bank-card button { color: #fff; background: rgba(255, 255, 255, .13); border: 1px solid rgba(255, 255, 255, .25); border-radius: 10px; min-height: 44px; padding: 8px 12px; }
+  .vwp-receipt-form { display: grid; gap: 20px; border-top: 1px solid #dce8f3; padding-top: 24px; }
+  .vwp-receipt-form label { display: grid; gap: 10px; font-size: 14px; font-weight: 500; }
+  .vwp-receipt-form input:not([type=file]), .vwp-receipt-form textarea { width: 100%; min-height: 48px; border: 1px solid #d5e2ee; border-radius: 12px; padding: 12px 14px; background: #f9fcff; color: #123c56; font-size: 16px; box-shadow: none; }
+  .vwp-receipt-form__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .vwp-upload { padding: 24px; border: 2px dashed #cbdfee; border-radius: 16px; background: #f8fcff; }
+  .vwp-upload input { width: 100%; font-size: 14px; }
+  .vwp-upload small { color: #688098; font-weight: 400; }
+  .vwp-upload img { max-width: 100%; max-height: 260px; object-fit: contain; border-radius: 12px; margin-top: 12px; }
+  .vwp-upload img[hidden] { display: none; }
+  .vwp-receipt-summary { padding: 20px; background: #f2faf7; border: 1px solid #d8eee4; border-radius: 16px; line-height: 2; }
+  [data-vwp-feedback]:empty { display: none; }
+  [data-vwp-feedback] { color: #b42337; line-height: 1.8; }
+  @media (max-width: 600px) {
+    padding: 20px 16px; border-radius: 20px;
+    &__header { gap: 12px; }
+    &__icon { width: 44px; height: 44px; border-radius: 14px; font-size: 24px; }
+    &__total { width: 100%; margin-inline-start: 0; border-top: 1px solid #e8eff5; padding-top: 16px; }
+    .vwp-receipt-form__fields { grid-template-columns: 1fr; }
+    .vwp-button { width: 100%; padding-inline: 14px; }
+    .vwp-upload { padding: 16px; }
+    .vwp-bank-card { padding: 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .vwp-button { transition: none; } }
+}
+.vwp-block-description { margin-block: 8px; color: #617b92; line-height: 1.9; }
+.vwp-block-label { font-weight: 600; }
+// WooCommerce's default order overview keeps emails on one line. Keep our receipt pages usable.
+.woocommerce-order:has(.vwp-payment) .woocommerce-order-overview li,
+.woocommerce-order:has(.vwp-payment) .woocommerce-order-overview strong,
+.woocommerce-order:has(.vwp-payment) .woocommerce-customer-details address,
+.woocommerce-order:has(.vwp-payment) .woocommerce-customer-details--email {
+  min-width: 0; white-space: normal; overflow-wrap: anywhere;
+}
