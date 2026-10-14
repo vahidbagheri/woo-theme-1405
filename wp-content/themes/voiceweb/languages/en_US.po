@@ -341,3 +341,124 @@ msgstr "Log in to save favorites"
 #: woocommerce/myaccount/dashboard.php
 msgid "%s awaiting payment"
 msgstr "%s awaiting payment"
+
+
+msgid "Recommended"
+msgstr "Recommended"
+
+msgid "Newest products"
+msgstr "Newest products"
+
+msgid "Best selling"
+msgstr "Best selling"
+
+msgid "Lowest price"
+msgstr "Lowest price"
+
+msgid "Highest price"
+msgstr "Highest price"
+
+msgid "Top rated"
+msgstr "Top rated"
+
+msgid "Product categories"
+msgstr "Product categories"
+
+msgid "Brand"
+msgstr "Brand"
+
+msgid "From"
+msgstr "From"
+
+msgid "Up to"
+msgstr "Up to"
+
+msgid "Available products only"
+msgstr "Available products only"
+
+msgid "On sale only"
+msgstr "On sale only"
+
+msgid "4 stars and above"
+msgstr "4 stars and above"
+
+msgid "Product search"
+msgstr "Product search"
+
+msgid "Updating products…"
+msgstr "Updating products…"
+
+msgid "Products could not be loaded. Your selections are kept; please try again."
+msgstr "Products could not be loaded. Your selections are kept; please try again."
+
+msgid "The minimum price must not exceed the maximum price."
+msgstr "The minimum price must not exceed the maximum price."
+
+msgid "Enter a valid price."
+msgstr "Enter a valid price."
+
+msgid "Show products"
+msgstr "Show products"
+
+msgid "selected filters"
+msgstr "selected filters"
+
+msgid "Filters"
+msgstr "Filters"
+
+msgid "Find the right product for your needs and budget."
+msgstr "Find the right product for your needs and budget."
+
+msgid "%s products"
+msgstr "%s products"
+
+msgid "Product filters"
+msgstr "Product filters"
+
+msgid "Sort by"
+msgstr "Sort by"
+
+msgid "Apply"
+msgstr "Apply"
+
+msgid "Active filters"
+msgstr "Active filters"
+
+msgid "Remove filter"
+msgstr "Remove filter"
+
+msgid "Clear all"
+msgstr "Clear all"
+
+msgid "%s products found"
+msgstr "%s products found"
+
+msgid "No products match these filters."
+msgstr "No products match these filters."
+
+msgid "Try a wider price range or remove a filter."
+msgstr "Try a wider price range or remove a filter."
+
+msgid "Change filters"
+msgstr "Change filters"
+
+msgid "Search products"
+msgstr "Search products"
+
+msgid "Product name or keyword"
+msgstr "Product name or keyword"
+
+msgid "Price range"
+msgstr "Price range"
+
+msgid "Minimum price"
+msgstr "Minimum price"
+
+msgid "Maximum price"
+msgstr "Maximum price"
+
+msgid "Prices use the store currency shown above."
+msgstr "Prices use the store currency shown above."
+
+msgid "Choose filters, then show the results."
+msgstr "Choose filters, then show the results."

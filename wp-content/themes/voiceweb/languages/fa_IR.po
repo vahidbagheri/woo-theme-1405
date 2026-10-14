@@ -350,3 +350,124 @@ msgstr "برای ذخیره در علاقه‌مندی‌ها وارد شوید"
 #: woocommerce/myaccount/dashboard.php
 msgid "%s awaiting payment"
 msgstr "%s در انتظار پرداخت"
+
+
+msgid "Recommended"
+msgstr "پیشنهادی"
+
+msgid "Newest products"
+msgstr "جدیدترین"
+
+msgid "Best selling"
+msgstr "پرفروش‌ترین"
+
+msgid "Lowest price"
+msgstr "ارزان‌ترین"
+
+msgid "Highest price"
+msgstr "گران‌ترین"
+
+msgid "Top rated"
+msgstr "بالاترین امتیاز"
+
+msgid "Product categories"
+msgstr "دسته‌بندی محصولات"
+
+msgid "Brand"
+msgstr "برند"
+
+msgid "From"
+msgstr "از"
+
+msgid "Up to"
+msgstr "تا"
+
+msgid "Available products only"
+msgstr "فقط کالاهای موجود"
+
+msgid "On sale only"
+msgstr "فقط تخفیف‌دارها"
+
+msgid "4 stars and above"
+msgstr "امتیاز ۴ و بیشتر"
+
+msgid "Product search"
+msgstr "جستجوی محصول"
+
+msgid "Updating products…"
+msgstr "در حال به‌روزرسانی محصولات…"
+
+msgid "Products could not be loaded. Your selections are kept; please try again."
+msgstr "محصولات بارگذاری نشدند. انتخاب‌هایتان حفظ شده؛ دوباره تلاش کنید."
+
+msgid "The minimum price must not exceed the maximum price."
+msgstr "قیمت «از» نباید بیشتر از قیمت «تا» باشد."
+
+msgid "Enter a valid price."
+msgstr "قیمت را به‌صورت عدد معتبر وارد کنید."
+
+msgid "Show products"
+msgstr "نمایش محصولات"
+
+msgid "selected filters"
+msgstr "فیلتر انتخاب شده"
+
+msgid "Filters"
+msgstr "فیلترها"
+
+msgid "Find the right product for your needs and budget."
+msgstr "با سلیقه و بودجهٔ خودتان انتخاب کنید."
+
+msgid "%s products"
+msgstr "%s محصول"
+
+msgid "Product filters"
+msgstr "فیلتر محصولات"
+
+msgid "Sort by"
+msgstr "مرتب‌سازی"
+
+msgid "Apply"
+msgstr "اعمال"
+
+msgid "Active filters"
+msgstr "فیلترهای فعال"
+
+msgid "Remove filter"
+msgstr "حذف فیلتر"
+
+msgid "Clear all"
+msgstr "پاک‌کردن همه"
+
+msgid "%s products found"
+msgstr "%s محصول پیدا شد"
+
+msgid "No products match these filters."
+msgstr "محصولی با این فیلترها پیدا نشد."
+
+msgid "Try a wider price range or remove a filter."
+msgstr "بازهٔ قیمت را بازتر کنید یا یکی از فیلترها را بردارید."
+
+msgid "Change filters"
+msgstr "تغییر فیلترها"
+
+msgid "Search products"
+msgstr "جستجو در محصولات"
+
+msgid "Product name or keyword"
+msgstr "نام محصول یا کلمهٔ کلیدی"
+
+msgid "Price range"
+msgstr "بازهٔ قیمت"
+
+msgid "Minimum price"
+msgstr "کمترین قیمت"
+
+msgid "Maximum price"
+msgstr "بیشترین قیمت"
+
+msgid "Prices use the store currency shown above."
+msgstr "قیمت‌ها بر اساس واحد پول نمایش‌داده‌شده هستند."
+
+msgid "Choose filters, then show the results."
+msgstr "انتخاب کنید و نتیجه‌ها را ببینید."

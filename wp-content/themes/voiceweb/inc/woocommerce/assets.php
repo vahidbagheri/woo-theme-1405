@@ -13,6 +13,7 @@ function voiceweb_wc_is_new_checkout(): bool {
 
 function voiceweb_wc_asset_keys( array $keys ): array {
 	if ( voiceweb_wc_is_page() ) { $keys[] = 'woocommerce'; }
+	if ( voiceweb_wc_is_catalog() ) { $keys[] = 'woocommerce-catalog'; }
 	if ( is_account_page() || voiceweb_wc_is_new_checkout() ) { $keys[] = 'woocommerce-addresses'; }
 	if ( voiceweb_wc_wishlist_enabled() && ( is_product() || ( is_account_page() && is_wc_endpoint_url( 'wishlist' ) ) ) ) { $keys[] = 'woocommerce-wishlist'; }
 	return $keys;

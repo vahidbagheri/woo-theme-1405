@@ -20,10 +20,13 @@
 | لینک سبد و نشان تعداد در نوار پایین موبایل | `inc/woocommerce/mobile-navigation.php` |
 | دکمهٔ علاقه‌مندی محصول و اتصال به API بومی | `inc/woocommerce/wishlist.php` |
 | هماهنگی شمارنده، فهرست و وضعیت نمایشی سفارش‌ها | `inc/woocommerce/orders.php` |
+| فیلتر قیمت، دسته، برند، ویژگی و مرتب‌سازی فروشگاه | `inc/woocommerce/catalog.php` |
+| چیدمان فروشگاه و فرم فیلترها | `template-parts/woocommerce/catalog.php` و `catalog-filters.php` |
 | سایدبار و پیشخوان حساب | `woocommerce/myaccount/navigation.php` و `dashboard.php` |
 | کارت‌های آدرس و فرم مودال | `template-parts/woocommerce/` |
 | رفتار دفترچه و مودال | `assets/js/pages/woocommerce-addresses.js` |
 | رفتارهای سبک فروشگاه | `assets/js/pages/woocommerce.js` |
+| پنل موبایل، درخواست محصولات و تاریخچهٔ فیلترها | `assets/js/pages/woocommerce-catalog.js` |
 
 صفحات محصول و فروشگاه از `woocommerce.php` وارد تمپلیت‌های بومی ووکامرس می‌شوند.
 سبد و checkout بلوکی فعلی حفظ شده‌اند. hookهای قیمت، سبد، کوپن، ارسال و پرداخت به خود
@@ -43,13 +46,14 @@
 می‌کند تا نشان تعداد در هدر و نوار موبایل هماهنگ بماند؛ Store API فقط یک بار برای لینک‌های
 قابل مشاهده فراخوانی می‌شود. سبد خالی نشان عدد ندارد.
 
-چهار entry مستقل وجود دارد:
+entryهای مستقل وجود دارد:
 
 ```text
 assets/scss/pages/woocommerce.scss           → assets/css/pages/woocommerce.css
 assets/scss/pages/woocommerce-account.scss   → assets/css/pages/woocommerce-account.css
 assets/scss/pages/woocommerce-addresses.scss → assets/css/pages/woocommerce-addresses.css
 assets/scss/pages/woocommerce-wishlist.scss  → assets/css/pages/woocommerce-wishlist.css
+assets/scss/pages/woocommerce-catalog.scss   → assets/css/pages/woocommerce-catalog.css
 ```
 
 partialها در `assets/scss/components/woocommerce/` قرار دارند. رنگ‌های اصلی از
@@ -62,6 +66,7 @@ npx sass wp-content/themes/voiceweb/assets/scss/pages/woocommerce.scss wp-conten
 npx sass wp-content/themes/voiceweb/assets/scss/pages/woocommerce-account.scss wp-content/themes/voiceweb/assets/css/pages/woocommerce-account.css --no-source-map --style=compressed
 npx sass wp-content/themes/voiceweb/assets/scss/pages/woocommerce-addresses.scss wp-content/themes/voiceweb/assets/css/pages/woocommerce-addresses.css --no-source-map --style=compressed
 npx sass wp-content/themes/voiceweb/assets/scss/pages/woocommerce-wishlist.scss wp-content/themes/voiceweb/assets/css/pages/woocommerce-wishlist.css --no-source-map --style=compressed
+npx sass wp-content/themes/voiceweb/assets/scss/pages/woocommerce-catalog.scss wp-content/themes/voiceweb/assets/css/pages/woocommerce-catalog.css --no-source-map --style=compressed
 ```
 
 فیلتر `cn/page-keys` کلیدهای `woocommerce`، `woocommerce-account` و `woocommerce-addresses`
@@ -187,6 +192,56 @@ endpointها زیر `/wp-json/voiceweb/v1/addresses` هستند:
 متادیتای `_voiceweb_address_id` و `_voiceweb_address_title` نیز به سفارش اضافه می‌شود.
 
 مرجع اتصال بلوکی: [مستندات رسمی extensionCartUpdate](https://developer.woocommerce.com/docs/apis/store-api/extending-store-api/extend-store-api-update-cart/).
+
+## فیلترهای فروشگاه
+
+فروشگاه و آرشیو دسته/برند/ویژگی از `template-parts/woocommerce/catalog.php` استفاده
+می‌کنند؛ تمپلیت تکی محصول همچنان بومی است. فیلترها بدون پلاگین جدید یا ساختار
+`inc/Modules`، در فایل‌های عادی قالب پیاده شده‌اند.
+
+- بازهٔ قیمت با ورودی «از/تا» و دو کنترل کشویی، با واحد پول واقعی ووکامرس.
+- مرتب‌سازی پیشنهادی، جدیدترین، پرفروش‌ترین، ارزان‌ترین، گران‌ترین و امتیاز.
+- فقط موجودها، تخفیف‌دارها و امتیاز ۴ و بیشتر، همراه جستجوی محصول.
+- انتخاب چند دسته، چند برند و چند مقدار هر ویژگی عمومی ووکامرس.
+- برچسب انتخاب‌های فعال، حذف جداگانه، پاک‌کردن همه و حالت بدون نتیجه.
+
+برند از taxonomy بومی `product_brand` می‌آید. برای افزودن ویژگی مثل رنگ، اندازه،
+جنس یا حافظه، آن را در **محصولات ← ویژگی‌ها** بساز و مقدارها را به محصولات بده.
+گزینه‌های دارای محصول به‌صورت خودکار نشان داده می‌شوند؛ یک ویژگی متنی که فقط
+داخل یک محصول نوشته شده، فیلتر عمومی نمی‌سازد. برای برند نیز محصولات باید برند
+داشته باشند. در هر گروه حداکثر ۱۰۰ گزینه نمایش داده می‌شود؛ انتخاب فعالِ خارج از
+این فهرست نیز حفظ می‌شود. تا ۵۰ مقدار برای یک فیلتر پذیرفته می‌شود.
+
+فیلترهای قیمت، ترتیب، ویژگی و امتیاز از query بومی WooCommerce استفاده می‌کنند؛
+قیمت محصول متغیر همان بازهٔ بومی ووکامرس است. گزینه‌های یک گروه به‌صورت OR و
+گروه‌های متفاوت به‌صورت AND ترکیب می‌شوند. کالاهای مخفی/پیش‌نویس وارد نتایج یا
+سقف کنترل قیمت نمی‌شوند. سقف کشویی از قیمت‌های عمومی همان آرشیو به دست می‌آید
+و با محدودکردن بازه، کوچک نمی‌شود؛ ورودی دستی می‌تواند از سقف نیز بیشتر باشد.
+قیمت نمایشی شامل مالیات، مطابق تنظیمات استاندارد price filter ووکامرس محاسبه می‌شود.
+
+در دسکتاپ سایدبار ثابت و قابل اسکرول است؛ انتخاب گزینه‌ها پس از مکث کوتاه اعمال
+می‌شود. برای قیمت تایپی و جستجو، دکمهٔ «نمایش محصولات» را بزن. موبایل تا عرض
+۹۹۱ پیکسل از دو پنل native `dialog` برای فیلتر و مرتب‌سازی استفاده می‌کند. این
+پنل‌ها بالای هدر و نوار پایین باز می‌شوند و فوکوس را نگه می‌دارند. تغییرات موبایل
+موقت‌اند؛ دکمهٔ نمایش آن‌ها را اعمال می‌کند و بستن پنل آن‌ها را لغو می‌کند.
+
+فرم GET و لینک‌ها بدون JavaScript نیز کار می‌کنند. در حالت JS، HTML نتایج از
+همان صفحهٔ عمومی فروشگاه دریافت می‌شود؛ مسیر API یا nonce خصوصی برای کاتالوگ
+وجود ندارد. URL، تاریخچهٔ مرورگر و صفحه‌بندی با فیلترها هماهنگ می‌شوند. تغییر
+فیلتر یا مرتب‌سازی به صفحهٔ اول برمی‌گردد. درخواست قبلی هنگام انتخاب جدید لغو
+می‌شود؛ در خطای شبکه، انتخاب‌ها باقی می‌مانند و ارسال مجدد ممکن است. پس از
+تغییر نتایج رویداد `voiceweb:catalog-updated` برای توسعهٔ رفتار سایر اجزا منتشر می‌شود.
+
+پارامترهای افزودهٔ قالب: `vw_category`، `vw_brand`، `vw_search`، `vw_stock` و
+`vw_sale`. پارامترهای بومی: `min_price`، `max_price`، `orderby`، `rating_filter`،
+`filter_<attribute>` و `query_type_<attribute>`. رقم فارسی/عربی در قیمت پذیرفته
+می‌شود؛ بازهٔ معکوس در سرور مرتب و ورودی نامعتبر کنار گذاشته می‌شود. همین قواعد
+فقط روی query اصلی آرشیو محصول اعمال می‌شوند.
+
+Sass در `assets/scss/components/woocommerce/_catalog-filters.scss` و JS در
+`assets/js/pages/woocommerce-catalog.js` است؛ entry `woocommerce-catalog` از
+لودر فعلی فقط روی آرشیو محصولات بارگذاری می‌شود. پیام‌ها در PO/MO والد فارسی
+و انگلیسی قرار دارند.
 
 ## بررسی‌ها
 

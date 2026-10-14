@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) || exit;
 if ( ! class_exists( 'WooCommerce' ) ) { return; }
 
-foreach ( array( 'address-store', 'address-api', 'assets', 'account', 'checkout', 'templates', 'mobile-navigation', 'wishlist', 'orders' ) as $file ) {
+foreach ( array( 'address-store', 'address-api', 'assets', 'account', 'checkout', 'templates', 'mobile-navigation', 'wishlist', 'orders', 'catalog' ) as $file ) {
 	require_once get_template_directory() . '/inc/woocommerce/' . $file . '.php';
 }
 
@@ -17,6 +17,10 @@ add_filter( 'cn/page-keys', 'voiceweb_wc_account_style_keys', 20 );
 add_filter( 'cn/asset/script-deps', 'voiceweb_wc_script_dependencies', 10, 3 );
 add_action( 'wp_enqueue_scripts', 'voiceweb_wc_address_script_data', 20 );
 add_action( 'wp_enqueue_scripts', 'voiceweb_wc_wishlist_script_data', 20 );
+add_action( 'wp_enqueue_scripts', 'voiceweb_wc_catalog_script_data', 20 );
+add_action( 'pre_get_posts', 'voiceweb_wc_catalog_normalize', 1 );
+add_action( 'woocommerce_product_query', 'voiceweb_wc_catalog_query', 20 );
+add_action( 'wp', 'voiceweb_wc_catalog_setup', 20 );
 add_filter( 'body_class', 'voiceweb_wc_body_classes' );
 add_action( 'voiceweb_auth/mobile_navigation_items', 'voiceweb_wc_mobile_cart_link' );
 add_filter( 'woocommerce_add_to_cart_fragments', 'voiceweb_wc_mobile_cart_fragments' );
